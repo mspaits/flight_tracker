@@ -78,7 +78,12 @@ with open("flight_offers.json", "w", encoding="utf-8") as file:
     json.dump(response.data, file, indent=2)
 print("\nFlight offers saved to flight_offers.json")
 
+# Create a dict to hold flight data for rendering in Flask
+flight_data = {
+    "flights": response.data
+}
 
+# Flask route to render a simple homepage
 @app.route('/')
 def index():
     return render_template('index.html')
