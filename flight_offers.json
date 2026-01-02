@@ -1,0 +1,623 @@
+[
+  {
+    "type": "flight-offer",
+    "id": "1",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-03",
+    "lastTicketingDateTime": "2026-01-03",
+    "numberOfBookableSeats": 4,
+    "itineraries": [
+      {
+        "duration": "PT2H15M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-01-19T15:59:00"
+            },
+            "arrival": {
+              "iataCode": "MIA",
+              "at": "2026-01-19T18:14:00"
+            },
+            "carrierCode": "F9",
+            "number": "3321",
+            "aircraft": {
+              "code": "32N"
+            },
+            "operating": {
+              "carrierCode": "F9"
+            },
+            "duration": "PT2H15M",
+            "id": "3",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "33.99",
+      "base": "17.29",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "33.99"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "F9"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "33.99",
+          "base": "17.29"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "3",
+            "cabin": "ECONOMY",
+            "fareBasis": "K14DXS2",
+            "brandedFare": "ECO",
+            "brandedFareLabel": "BASIC",
+            "class": "K",
+            "amenities": [
+              {
+                "description": "UPTO100LB 45KG BAGGAGE",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "FIRST CHECKED BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND CHECKED BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CARRY16KG 35LB UPTO46LI 118LCM",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "BASIC SEAT",
+                "isChargeable": true,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "2",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-03",
+    "lastTicketingDateTime": "2026-01-03",
+    "numberOfBookableSeats": 4,
+    "itineraries": [
+      {
+        "duration": "PT6H10M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-01-19T09:02:00"
+            },
+            "arrival": {
+              "iataCode": "PHL",
+              "terminal": "E",
+              "at": "2026-01-19T10:32:00"
+            },
+            "carrierCode": "F9",
+            "number": "2060",
+            "aircraft": {
+              "code": "32N"
+            },
+            "operating": {
+              "carrierCode": "F9"
+            },
+            "duration": "PT1H30M",
+            "id": "1",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "PHL",
+              "terminal": "E",
+              "at": "2026-01-19T12:06:00"
+            },
+            "arrival": {
+              "iataCode": "MIA",
+              "at": "2026-01-19T15:12:00"
+            },
+            "carrierCode": "F9",
+            "number": "3257",
+            "aircraft": {
+              "code": "321"
+            },
+            "operating": {
+              "carrierCode": "F9"
+            },
+            "duration": "PT3H6M",
+            "id": "2",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "265.15",
+      "base": "223.25",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "265.15"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "F9"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "265.15",
+          "base": "223.25"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "1",
+            "cabin": "ECONOMY",
+            "fareBasis": "Q14PXP5",
+            "brandedFare": "ECO",
+            "brandedFareLabel": "BASIC",
+            "class": "Q",
+            "amenities": [
+              {
+                "description": "UPTO100LB 45KG BAGGAGE",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "FIRST CHECKED BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND CHECKED BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CARRY16KG 35LB UPTO46LI 118LCM",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "BASIC SEAT",
+                "isChargeable": true,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "2",
+            "cabin": "ECONOMY",
+            "fareBasis": "Q14PXP5",
+            "brandedFare": "ECO",
+            "brandedFareLabel": "BASIC",
+            "class": "Q",
+            "amenities": [
+              {
+                "description": "UPTO100LB 45KG BAGGAGE",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "FIRST CHECKED BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND CHECKED BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CARRY16KG 35LB UPTO46LI 118LCM",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "BASIC SEAT",
+                "isChargeable": true,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "3",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-03",
+    "lastTicketingDateTime": "2026-01-03",
+    "numberOfBookableSeats": 4,
+    "itineraries": [
+      {
+        "duration": "PT9H44M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-01-19T16:15:00"
+            },
+            "arrival": {
+              "iataCode": "DFW",
+              "terminal": "E",
+              "at": "2026-01-19T18:42:00"
+            },
+            "carrierCode": "F9",
+            "number": "2343",
+            "aircraft": {
+              "code": "32N"
+            },
+            "operating": {
+              "carrierCode": "F9"
+            },
+            "duration": "PT3H27M",
+            "id": "4",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "DFW",
+              "terminal": "E",
+              "at": "2026-01-19T22:05:00"
+            },
+            "arrival": {
+              "iataCode": "MIA",
+              "at": "2026-01-20T01:59:00"
+            },
+            "carrierCode": "F9",
+            "number": "2676",
+            "aircraft": {
+              "code": "32N"
+            },
+            "operating": {
+              "carrierCode": "F9"
+            },
+            "duration": "PT2H54M",
+            "id": "5",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "265.15",
+      "base": "223.25",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "265.15"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "F9"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "265.15",
+          "base": "223.25"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "4",
+            "cabin": "ECONOMY",
+            "fareBasis": "Q14PXP5",
+            "brandedFare": "ECO",
+            "brandedFareLabel": "BASIC",
+            "class": "Q",
+            "amenities": [
+              {
+                "description": "UPTO100LB 45KG BAGGAGE",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "FIRST CHECKED BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND CHECKED BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CARRY16KG 35LB UPTO46LI 118LCM",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "BASIC SEAT",
+                "isChargeable": true,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "5",
+            "cabin": "ECONOMY",
+            "fareBasis": "Q14PXP5",
+            "brandedFare": "ECO",
+            "brandedFareLabel": "BASIC",
+            "class": "Q",
+            "amenities": [
+              {
+                "description": "UPTO100LB 45KG BAGGAGE",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "FIRST CHECKED BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND CHECKED BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CARRY16KG 35LB UPTO46LI 118LCM",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "BASIC SEAT",
+                "isChargeable": true,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
