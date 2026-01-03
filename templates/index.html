@@ -26,6 +26,7 @@
                         <th>Arrival Time</th>
                         <th>Duration</th>
                         <th>Carrier Code</th>
+                        <th>Flight Number</th>
                         <th>Price</th>
                         <th>Bookable Seats</th>
                     </tr>
@@ -33,7 +34,7 @@
                 <tbody>
                     {% for flight in flights %}
                     <tr>
-                        <td>{{ loop.index }}</td>
+                        <td>{{ flight.search_no }}</td>
                         <td>{{ flight.stops }}</td>
                         <td>{{ flight.departure_airport }}</td>
                         <td>{{ flight.departure_time }}</td>
@@ -41,6 +42,7 @@
                         <td>{{ flight.arrival_time }}</td>
                         <td>{{ flight.duration }}</td>
                         <td>{{ flight.carrier_code }}</td>
+                        <td>{{ flight.flight_number }}</td>
                         <td>{{ flight.price }}</td>
                         <td>{{ flight.bookable_seats }}</td>
                     </tr>
