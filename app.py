@@ -42,6 +42,8 @@ def get_flight_offers(origin, destination, departure_date, adults, airline_code,
         if airline_code:
             params['includedAirlineCodes'] = airline_code
 
+        print(params)
+
         response = amadeus.shopping.flight_offers_search.get(**params)
 
         return response
@@ -49,36 +51,6 @@ def get_flight_offers(origin, destination, departure_date, adults, airline_code,
     except ResponseError as error:
         print(f"An error occurred: {error}")
         return None
-
-
-# Print stuff to terminal
-"""for flight in response.data:
-    legs = len(flight['itineraries'][0]['segments'])
-    itinerary = flight['itineraries'][0]  # Contains duration and segments
-    segments = itinerary['segments']  # Contains each flight leg details
-
-    print("")
-    print("Search no:", flight['id'])
-    print("Stops:", legs - 1)
-    print("Departure Airport:", segments[0]['departure']['iataCode'])
-    print("Departure Time:", segments[0]['departure']['at'])
-    print("Arrival Airport:", segments[-1]['arrival']['iataCode'])
-    print("Arrival Time:", segments[-1]['arrival']['at'])
-    print("Duration:", flight['itineraries'][0]['duration'])
-    print("Carrier Code:", get_airline_name(flight['validatingAirlineCodes']))
-    print("Price:", flight['price']['grandTotal'])
-    print("Bookable seats:", flight['numberOfBookableSeats'])
-
-    for i in range(legs):
-        # Need to print each leg details
-        print("  Leg:", i + 1)
-        print("Departure Airport:", segments[i]['departure']['iataCode'])
-        print("Departure Time:", segments[i]['departure']['at'])
-        print("Arrival Airport:", segments[i]['arrival']['iataCode'])
-        print("Arrival Time:", segments[i]['arrival']['at'])
-        print("Duration:", segments[i]['duration'])
-        print("Carrier Code:", get_airline_name(segments[i]['carrierCode']))
-        print("Flight Number:", segments[i]['number'])"""
 
 
 # Flask route to render a simple homepage
