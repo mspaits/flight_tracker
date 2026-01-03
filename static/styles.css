@@ -16,7 +16,7 @@
 }
 
 .section {
-    padding-bottom: 1rem;
+    padding-bottom: 5rem;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-top: 0.5rem;
@@ -59,4 +59,36 @@ table td {
 
 tbody tr:nth-of-type(odd) {
     background-color: rgb(179, 208, 255, 0.3)
+}
+
+label {
+    display: block;
+    margin-bottom: 0.2rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    text-align: left;
+    width: auto;
+}
+
+.search_form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem 1.5rem;
+    max-width : 1200px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group.submit {
+    align-self: end;
 }
