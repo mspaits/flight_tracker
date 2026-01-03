@@ -13,6 +13,49 @@
         <div class="header">
             <h1>Flight Tracker v1.0!</h1>
         </div>
+        <div class="section">
+            <h2>Search Flights</h2>
+            <form action="/" method="post" class="search_form">
+                <div class="form-group">
+                    <label for="bookFlightOriginInput">From</label>
+                    <input autocomplete="off" autofocus name="origin" placeholder="Departure Airport eg(RDU)" id="bookFlightOriginInput" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="bookFlightDestinationInput">To</label>
+                    <input autocomplete="off" name="destination" placeholder="Arrival Airport eg(MIA)" id="bookFlightDestinationInput" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="bookFlightDepartureDateInput">Departure Date</label>
+                    <input autocomplete="off" name="departure_date" placeholder="Departure Date eg(2026-01-19)" id="bookFlightDepartureDateInput" type="date">
+                </div>
+
+                <div class="form-group">
+                    <label for="bookFlightReturnDateInput">Return Date</label>
+                    <input autocomplete="off" name="return_date" placeholder="Return Date eg(2026-01-25)" id="bookFlightReturnDateInput" type="date">
+                </div>
+
+                <div class="form-group">
+                    <label for="bookFlightAdultsInput">Number of Adults</label>
+                    <input autocomplete="off" name="adults" placeholder="Number of Adults eg(1)" id="bookFlightAdultsInput" type="number">
+                </div>
+
+                <div class="form-group">
+                    <label for="bookFlightAirlineCodeInput">Airline Code (optional)</label>
+                    <input autocomplete="off" name="airline_code" placeholder="Airline Code eg(UA)" id="bookFlightAirlineCodeInput" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="bookFlightMaxResultsInput">Max Results</label>
+                    <input autocomplete="off" name="max_results" placeholder="Max Results eg(5)" id="bookFlightMaxResultsInput" type="number">
+                </div>
+
+                <div class="form-group submit">
+                    <input type="submit" value="Search Flights">
+                </div>
+            </form>
+        </div>
         <div class="container">
             <h2>Full Route Results</h2>
             <table>
