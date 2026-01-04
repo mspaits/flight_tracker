@@ -92,3 +92,7 @@ label {
 .form-group.submit {
     align-self: end;
 }
+
+.button_column {
+    width: 20rem;
+}

@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="form-group submit">
-                    <input type="submit" value="Search Flights">
+                    <input type="submit" value="Track Flight">
                 </div>
             </form>
         </div>
@@ -76,6 +76,16 @@
                         <td>{{ search.adults }}</td>
                         <td>{{ search.results }}</td>
                         <td>{{ search.airline }}</td>
+                        <td class="button_column">
+                            <form action="/delete/{{ search.id }}" method="post">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </td>
+                        <td class="button_column">
+                            <form action="/check/{{ search.id }}" method="post">
+                                <input type="submit" value="Search Now">
+                            </form>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>

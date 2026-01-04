@@ -7,57 +7,58 @@
     "nonHomogeneous": false,
     "oneWay": false,
     "isUpsellOffer": false,
-    "lastTicketingDate": "2026-01-04",
-    "lastTicketingDateTime": "2026-01-04",
-    "numberOfBookableSeats": 4,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 1,
     "itineraries": [
       {
-        "duration": "PT5H37M",
+        "duration": "PT5H34M",
         "segments": [
           {
             "departure": {
               "iataCode": "RDU",
               "terminal": "2",
-              "at": "2026-01-28T07:10:00"
+              "at": "2026-02-04T06:40:00"
             },
             "arrival": {
-              "iataCode": "ATL",
-              "terminal": "N",
-              "at": "2026-01-28T09:00:00"
+              "iataCode": "FLL",
+              "terminal": "3",
+              "at": "2026-02-04T08:45:00"
             },
-            "carrierCode": "F9",
-            "number": "4797",
+            "carrierCode": "B6",
+            "number": "2625",
             "aircraft": {
-              "code": "32N"
+              "code": "320"
             },
             "operating": {
-              "carrierCode": "F9"
+              "carrierCode": "B6"
             },
-            "duration": "PT1H50M",
-            "id": "3",
+            "duration": "PT2H5M",
+            "id": "25",
             "numberOfStops": 0,
             "blacklistedInEU": false
           },
           {
             "departure": {
-              "iataCode": "ATL",
-              "terminal": "N",
-              "at": "2026-01-28T10:40:00"
+              "iataCode": "FLL",
+              "terminal": "3",
+              "at": "2026-02-04T09:45:00"
             },
             "arrival": {
-              "iataCode": "MIA",
-              "at": "2026-01-28T12:47:00"
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T12:14:00"
             },
-            "carrierCode": "F9",
-            "number": "4406",
+            "carrierCode": "B6",
+            "number": "1680",
             "aircraft": {
-              "code": "32N"
+              "code": "223"
             },
             "operating": {
-              "carrierCode": "F9"
+              "carrierCode": "B6"
             },
-            "duration": "PT2H7M",
-            "id": "4",
+            "duration": "PT2H29M",
+            "id": "26",
             "numberOfStops": 0,
             "blacklistedInEU": false
           }
@@ -66,8 +67,8 @@
     ],
     "price": {
       "currency": "USD",
-      "total": "69.03",
-      "base": "40.73",
+      "total": "92.41",
+      "base": "62.51",
       "fees": [
         {
           "amount": "0.00",
@@ -78,7 +79,13 @@
           "type": "TICKETING"
         }
       ],
-      "grandTotal": "69.03"
+      "grandTotal": "92.41",
+      "additionalServices": [
+        {
+          "amount": "35.00",
+          "type": "CHECKED_BAGS"
+        }
+      ]
     },
     "pricingOptions": {
       "fareType": [
@@ -87,7 +94,7 @@
       "includedCheckedBagsOnly": false
     },
     "validatingAirlineCodes": [
-      "F9"
+      "B6"
     ],
     "travelerPricings": [
       {
@@ -96,20 +103,26 @@
         "travelerType": "ADULT",
         "price": {
           "currency": "USD",
-          "total": "69.03",
-          "base": "40.73"
+          "total": "92.41",
+          "base": "62.51"
         },
         "fareDetailsBySegment": [
           {
-            "segmentId": "3",
+            "segmentId": "25",
             "cabin": "ECONOMY",
-            "fareBasis": "K21OXP4",
-            "brandedFare": "ECO",
-            "brandedFareLabel": "BASIC",
-            "class": "K",
+            "fareBasis": "UC2AUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
             "amenities": [
               {
-                "description": "UPTO100LB 45KG BAGGAGE",
+                "description": "CHECKED BAG FIRST",
                 "isChargeable": true,
                 "amenityType": "BAGGAGE",
                 "amenityProvider": {
@@ -117,7 +130,7 @@
                 }
               },
               {
-                "description": "FIRST CHECKED BAG",
+                "description": "CHECKED BAG SECOND",
                 "isChargeable": true,
                 "amenityType": "BAGGAGE",
                 "amenityProvider": {
@@ -125,23 +138,7 @@
                 }
               },
               {
-                "description": "SECOND CHECKED BAG",
-                "isChargeable": true,
-                "amenityType": "BAGGAGE",
-                "amenityProvider": {
-                  "name": "BrandedFare"
-                }
-              },
-              {
-                "description": "CARRY16KG 35LB UPTO46LI 118LCM",
-                "isChargeable": true,
-                "amenityType": "BAGGAGE",
-                "amenityProvider": {
-                  "name": "BrandedFare"
-                }
-              },
-              {
-                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "description": "EXTRA LEGROOM",
                 "isChargeable": true,
                 "amenityType": "PRE_RESERVED_SEAT",
                 "amenityProvider": {
@@ -149,17 +146,33 @@
                 }
               },
               {
-                "description": "PRIORITY BOARDING",
+                "description": "ADVANCE SEAT SELECTION",
                 "isChargeable": true,
-                "amenityType": "TRAVEL_SERVICES",
+                "amenityType": "PRE_RESERVED_SEAT",
                 "amenityProvider": {
                   "name": "BrandedFare"
                 }
               },
               {
-                "description": "BASIC SEAT",
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
                 "isChargeable": true,
-                "amenityType": "BRANDED_FARES",
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
                 "amenityProvider": {
                   "name": "BrandedFare"
                 }
@@ -167,15 +180,21 @@
             ]
           },
           {
-            "segmentId": "4",
+            "segmentId": "26",
             "cabin": "ECONOMY",
-            "fareBasis": "K21OXP4",
-            "brandedFare": "ECO",
-            "brandedFareLabel": "BASIC",
-            "class": "K",
+            "fareBasis": "UC2AUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
             "amenities": [
               {
-                "description": "UPTO100LB 45KG BAGGAGE",
+                "description": "CHECKED BAG FIRST",
                 "isChargeable": true,
                 "amenityType": "BAGGAGE",
                 "amenityProvider": {
@@ -183,7 +202,7 @@
                 }
               },
               {
-                "description": "FIRST CHECKED BAG",
+                "description": "CHECKED BAG SECOND",
                 "isChargeable": true,
                 "amenityType": "BAGGAGE",
                 "amenityProvider": {
@@ -191,23 +210,7 @@
                 }
               },
               {
-                "description": "SECOND CHECKED BAG",
-                "isChargeable": true,
-                "amenityType": "BAGGAGE",
-                "amenityProvider": {
-                  "name": "BrandedFare"
-                }
-              },
-              {
-                "description": "CARRY16KG 35LB UPTO46LI 118LCM",
-                "isChargeable": true,
-                "amenityType": "BAGGAGE",
-                "amenityProvider": {
-                  "name": "BrandedFare"
-                }
-              },
-              {
-                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "description": "EXTRA LEGROOM",
                 "isChargeable": true,
                 "amenityType": "PRE_RESERVED_SEAT",
                 "amenityProvider": {
@@ -215,17 +218,33 @@
                 }
               },
               {
-                "description": "PRIORITY BOARDING",
+                "description": "ADVANCE SEAT SELECTION",
                 "isChargeable": true,
-                "amenityType": "TRAVEL_SERVICES",
+                "amenityType": "PRE_RESERVED_SEAT",
                 "amenityProvider": {
                   "name": "BrandedFare"
                 }
               },
               {
-                "description": "BASIC SEAT",
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
                 "isChargeable": true,
-                "amenityType": "BRANDED_FARES",
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
                 "amenityProvider": {
                   "name": "BrandedFare"
                 }
@@ -246,55 +265,56 @@
     "isUpsellOffer": false,
     "lastTicketingDate": "2026-01-05",
     "lastTicketingDateTime": "2026-01-05",
-    "numberOfBookableSeats": 9,
+    "numberOfBookableSeats": 1,
     "itineraries": [
       {
-        "duration": "PT27H45M",
+        "duration": "PT5H44M",
         "segments": [
           {
             "departure": {
               "iataCode": "RDU",
               "terminal": "2",
-              "at": "2026-01-28T06:20:00"
+              "at": "2026-02-04T08:50:00"
             },
             "arrival": {
-              "iataCode": "DTW",
-              "terminal": "E",
-              "at": "2026-01-28T08:12:00"
+              "iataCode": "BOS",
+              "terminal": "C",
+              "at": "2026-02-04T10:49:00"
             },
-            "carrierCode": "NK",
-            "number": "2196",
+            "carrierCode": "B6",
+            "number": "484",
             "aircraft": {
-              "code": "32A"
+              "code": "223"
             },
             "operating": {
-              "carrierCode": "NK"
+              "carrierCode": "B6"
             },
-            "duration": "PT1H52M",
-            "id": "5",
+            "duration": "PT1H59M",
+            "id": "35",
             "numberOfStops": 0,
             "blacklistedInEU": false
           },
           {
             "departure": {
-              "iataCode": "DTW",
-              "terminal": "E",
-              "at": "2026-01-29T07:00:00"
+              "iataCode": "BOS",
+              "terminal": "C",
+              "at": "2026-02-04T12:45:00"
             },
             "arrival": {
-              "iataCode": "MIA",
-              "at": "2026-01-29T10:05:00"
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T14:34:00"
             },
-            "carrierCode": "NK",
-            "number": "3918",
+            "carrierCode": "B6",
+            "number": "1955",
             "aircraft": {
-              "code": "32A"
+              "code": "223"
             },
             "operating": {
-              "carrierCode": "NK"
+              "carrierCode": "B6"
             },
-            "duration": "PT3H5M",
-            "id": "6",
+            "duration": "PT1H49M",
+            "id": "36",
             "numberOfStops": 0,
             "blacklistedInEU": false
           }
@@ -303,8 +323,8 @@
     ],
     "price": {
       "currency": "USD",
-      "total": "91.17",
-      "base": "56.17",
+      "total": "92.41",
+      "base": "62.51",
       "fees": [
         {
           "amount": "0.00",
@@ -315,7 +335,13 @@
           "type": "TICKETING"
         }
       ],
-      "grandTotal": "91.17"
+      "grandTotal": "92.41",
+      "additionalServices": [
+        {
+          "amount": "35.00",
+          "type": "CHECKED_BAGS"
+        }
+      ]
     },
     "pricingOptions": {
       "fareType": [
@@ -324,7 +350,7 @@
       "includedCheckedBagsOnly": false
     },
     "validatingAirlineCodes": [
-      "NK"
+      "B6"
     ],
     "travelerPricings": [
       {
@@ -333,27 +359,153 @@
         "travelerType": "ADULT",
         "price": {
           "currency": "USD",
-          "total": "91.17",
-          "base": "56.17"
+          "total": "92.41",
+          "base": "62.51"
         },
         "fareDetailsBySegment": [
           {
-            "segmentId": "5",
+            "segmentId": "35",
             "cabin": "ECONOMY",
-            "fareBasis": "WA21NR",
-            "class": "W",
+            "fareBasis": "UC2AUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
             "includedCheckedBags": {
               "quantity": 0
-            }
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
           },
           {
-            "segmentId": "6",
+            "segmentId": "36",
             "cabin": "ECONOMY",
-            "fareBasis": "WA21Y4",
-            "class": "W",
+            "fareBasis": "UC2AUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
             "includedCheckedBags": {
               "quantity": 0
-            }
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
           }
         ]
       }
@@ -369,55 +521,56 @@
     "isUpsellOffer": false,
     "lastTicketingDate": "2026-01-05",
     "lastTicketingDateTime": "2026-01-05",
-    "numberOfBookableSeats": 9,
+    "numberOfBookableSeats": 1,
     "itineraries": [
       {
-        "duration": "PT7H5M",
+        "duration": "PT12H38M",
         "segments": [
           {
             "departure": {
               "iataCode": "RDU",
               "terminal": "2",
-              "at": "2026-01-28T15:15:00"
+              "at": "2026-02-04T06:40:00"
             },
             "arrival": {
-              "iataCode": "EWR",
-              "terminal": "C",
-              "at": "2026-01-28T17:05:00"
+              "iataCode": "FLL",
+              "terminal": "3",
+              "at": "2026-02-04T08:45:00"
             },
-            "carrierCode": "UA",
-            "number": "2175",
+            "carrierCode": "B6",
+            "number": "2625",
             "aircraft": {
-              "code": "7M9"
+              "code": "320"
             },
             "operating": {
-              "carrierCode": "UA"
+              "carrierCode": "B6"
             },
-            "duration": "PT1H50M",
-            "id": "1",
+            "duration": "PT2H5M",
+            "id": "29",
             "numberOfStops": 0,
             "blacklistedInEU": false
           },
           {
             "departure": {
-              "iataCode": "EWR",
-              "terminal": "C",
-              "at": "2026-01-28T18:59:00"
+              "iataCode": "FLL",
+              "terminal": "3",
+              "at": "2026-02-04T16:45:00"
             },
             "arrival": {
-              "iataCode": "MIA",
-              "at": "2026-01-28T22:20:00"
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T19:18:00"
             },
-            "carrierCode": "UA",
-            "number": "1128",
+            "carrierCode": "B6",
+            "number": "1880",
             "aircraft": {
-              "code": "7M8"
+              "code": "223"
             },
             "operating": {
-              "carrierCode": "UA"
+              "carrierCode": "B6"
             },
-            "duration": "PT3H21M",
-            "id": "2",
+            "duration": "PT2H33M",
+            "id": "30",
             "numberOfStops": 0,
             "blacklistedInEU": false
           }
@@ -426,8 +579,8 @@
     ],
     "price": {
       "currency": "USD",
-      "total": "138.31",
-      "base": "105.21",
+      "total": "127.14",
+      "base": "89.64",
       "fees": [
         {
           "amount": "0.00",
@@ -438,7 +591,1287 @@
           "type": "TICKETING"
         }
       ],
-      "grandTotal": "138.31"
+      "grandTotal": "127.14",
+      "additionalServices": [
+        {
+          "amount": "35.00",
+          "type": "CHECKED_BAGS"
+        }
+      ]
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "B6"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "127.14",
+          "base": "89.64"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "29",
+            "cabin": "ECONOMY",
+            "fareBasis": "PI2QUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "30",
+            "cabin": "ECONOMY",
+            "fareBasis": "UI2QBZL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "4",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 1,
+    "itineraries": [
+      {
+        "duration": "PT8H27M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T14:30:00"
+            },
+            "arrival": {
+              "iataCode": "JFK",
+              "terminal": "5",
+              "at": "2026-02-04T16:09:00"
+            },
+            "carrierCode": "B6",
+            "number": "286",
+            "aircraft": {
+              "code": "223"
+            },
+            "operating": {
+              "carrierCode": "B6"
+            },
+            "duration": "PT1H39M",
+            "id": "21",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "JFK",
+              "terminal": "5",
+              "at": "2026-02-04T21:40:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T22:57:00"
+            },
+            "carrierCode": "B6",
+            "number": "2587",
+            "aircraft": {
+              "code": "223"
+            },
+            "operating": {
+              "carrierCode": "B6"
+            },
+            "duration": "PT1H17M",
+            "id": "22",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "132.19",
+      "base": "94.29",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "132.19",
+      "additionalServices": [
+        {
+          "amount": "35.00",
+          "type": "CHECKED_BAGS"
+        }
+      ]
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "B6"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "132.19",
+          "base": "94.29"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "21",
+            "cabin": "ECONOMY",
+            "fareBasis": "PI2QUOL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "22",
+            "cabin": "ECONOMY",
+            "fareBasis": "PI2QUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "5",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 1,
+    "itineraries": [
+      {
+        "duration": "PT14H22M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T08:35:00"
+            },
+            "arrival": {
+              "iataCode": "JFK",
+              "terminal": "5",
+              "at": "2026-02-04T10:16:00"
+            },
+            "carrierCode": "B6",
+            "number": "2486",
+            "aircraft": {
+              "code": "223"
+            },
+            "operating": {
+              "carrierCode": "B6"
+            },
+            "duration": "PT1H41M",
+            "id": "17",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "JFK",
+              "terminal": "5",
+              "at": "2026-02-04T21:40:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T22:57:00"
+            },
+            "carrierCode": "B6",
+            "number": "2587",
+            "aircraft": {
+              "code": "223"
+            },
+            "operating": {
+              "carrierCode": "B6"
+            },
+            "duration": "PT1H17M",
+            "id": "18",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "132.19",
+      "base": "94.29",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "132.19",
+      "additionalServices": [
+        {
+          "amount": "35.00",
+          "type": "CHECKED_BAGS"
+        }
+      ]
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "B6"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "132.19",
+          "base": "94.29"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "17",
+            "cabin": "ECONOMY",
+            "fareBasis": "PI2QUOL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "18",
+            "cabin": "ECONOMY",
+            "fareBasis": "PI2QUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "6",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 1,
+    "itineraries": [
+      {
+        "duration": "PT15H20M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T17:55:00"
+            },
+            "arrival": {
+              "iataCode": "FLL",
+              "terminal": "3",
+              "at": "2026-02-04T20:05:00"
+            },
+            "carrierCode": "B6",
+            "number": "725",
+            "aircraft": {
+              "code": "320"
+            },
+            "operating": {
+              "carrierCode": "B6"
+            },
+            "duration": "PT2H10M",
+            "id": "15",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "FLL",
+              "terminal": "3",
+              "at": "2026-02-05T06:45:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-05T09:15:00"
+            },
+            "carrierCode": "B6",
+            "number": "1480",
+            "aircraft": {
+              "code": "223"
+            },
+            "operating": {
+              "carrierCode": "B6"
+            },
+            "duration": "PT2H30M",
+            "id": "16",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "142.20",
+      "base": "103.60",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "142.20",
+      "additionalServices": [
+        {
+          "amount": "35.00",
+          "type": "CHECKED_BAGS"
+        }
+      ]
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "B6"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "142.20",
+          "base": "103.60"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "15",
+            "cabin": "ECONOMY",
+            "fareBasis": "UI4QUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "16",
+            "cabin": "ECONOMY",
+            "fareBasis": "UI7QUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "7",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 1,
+    "itineraries": [
+      {
+        "duration": "PT18H19M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T17:55:00"
+            },
+            "arrival": {
+              "iataCode": "FLL",
+              "terminal": "3",
+              "at": "2026-02-04T20:05:00"
+            },
+            "carrierCode": "B6",
+            "number": "725",
+            "aircraft": {
+              "code": "320"
+            },
+            "operating": {
+              "carrierCode": "B6"
+            },
+            "duration": "PT2H10M",
+            "id": "13",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "FLL",
+              "terminal": "3",
+              "at": "2026-02-05T09:45:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-05T12:14:00"
+            },
+            "carrierCode": "B6",
+            "number": "1680",
+            "aircraft": {
+              "code": "223"
+            },
+            "operating": {
+              "carrierCode": "B6"
+            },
+            "duration": "PT2H29M",
+            "id": "14",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "142.20",
+      "base": "103.60",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "142.20",
+      "additionalServices": [
+        {
+          "amount": "70.00",
+          "type": "CHECKED_BAGS"
+        }
+      ]
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "B6"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "142.20",
+          "base": "103.60"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "13",
+            "cabin": "ECONOMY",
+            "fareBasis": "UI4QUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "14",
+            "cabin": "ECONOMY",
+            "fareBasis": "UI7QUEL1",
+            "brandedFare": "DN",
+            "brandedFareLabel": "BLUE BASIC",
+            "class": "L",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 2
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "CHECKED BAG SECOND",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "EXTRA LEGROOM",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ADVANCE SEAT SELECTION",
+                "isChargeable": true,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SNACK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ALCOHOLIC DRINK",
+                "isChargeable": true,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "NON ALCOHOLIC DRINK",
+                "isChargeable": false,
+                "amenityType": "MEAL",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "8",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT4H",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T11:18:00"
+            },
+            "arrival": {
+              "iataCode": "EWR",
+              "terminal": "C",
+              "at": "2026-02-04T13:00:00"
+            },
+            "carrierCode": "UA",
+            "number": "2289",
+            "aircraft": {
+              "code": "319"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT1H42M",
+            "id": "1",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "EWR",
+              "terminal": "C",
+              "at": "2026-02-04T14:00:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T15:18:00"
+            },
+            "carrierCode": "UA",
+            "number": "4433",
+            "aircraft": {
+              "code": "CR5"
+            },
+            "operating": {
+              "carrierName": "GOJET AIRLINES DBA UNITED EXPRESS"
+            },
+            "duration": "PT1H18M",
+            "id": "2",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "238.33",
+      "base": "198.23",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "238.33"
     },
     "pricingOptions": {
       "fareType": [
@@ -456,17 +1889,17 @@
         "travelerType": "ADULT",
         "price": {
           "currency": "USD",
-          "total": "138.31",
-          "base": "105.21"
+          "total": "238.33",
+          "base": "198.23"
         },
         "fareDetailsBySegment": [
           {
             "segmentId": "1",
             "cabin": "ECONOMY",
-            "fareBasis": "KAA7PFDN",
+            "fareBasis": "VAA2ODEN",
             "brandedFare": "ECONOMY",
             "brandedFareLabel": "ECONOMY",
-            "class": "K",
+            "class": "V",
             "includedCheckedBags": {
               "quantity": 0
             },
@@ -527,10 +1960,2850 @@
           {
             "segmentId": "2",
             "cabin": "ECONOMY",
-            "fareBasis": "KAA7PFDN",
+            "fareBasis": "VAA2ODEN",
             "brandedFare": "ECONOMY",
             "brandedFareLabel": "ECONOMY",
-            "class": "K",
+            "class": "V",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "9",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT4H18M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T15:15:00"
+            },
+            "arrival": {
+              "iataCode": "EWR",
+              "terminal": "C",
+              "at": "2026-02-04T17:05:00"
+            },
+            "carrierCode": "UA",
+            "number": "2175",
+            "aircraft": {
+              "code": "7M9"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT1H50M",
+            "id": "11",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "EWR",
+              "terminal": "C",
+              "at": "2026-02-04T18:00:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T19:33:00"
+            },
+            "carrierCode": "UA",
+            "number": "4432",
+            "aircraft": {
+              "code": "CR5"
+            },
+            "operating": {
+              "carrierName": "GOJET AIRLINES DBA UNITED EXPRESS"
+            },
+            "duration": "PT1H33M",
+            "id": "12",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "238.33",
+      "base": "198.23",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "238.33"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "238.33",
+          "base": "198.23"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "11",
+            "cabin": "ECONOMY",
+            "fareBasis": "VAA2ODEN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "V",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "12",
+            "cabin": "ECONOMY",
+            "fareBasis": "VAA2ODEN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "V",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "10",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT18H45M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T16:44:00"
+            },
+            "arrival": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-04T19:10:00"
+            },
+            "carrierCode": "UA",
+            "number": "2407",
+            "aircraft": {
+              "code": "7M8"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT3H26M",
+            "id": "39",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-05T07:30:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-05T11:29:00"
+            },
+            "carrierCode": "UA",
+            "number": "512",
+            "aircraft": {
+              "code": "73G"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT2H59M",
+            "id": "40",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "439.02",
+      "base": "379.72",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "439.02"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "439.02",
+          "base": "379.72"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "39",
+            "cabin": "ECONOMY",
+            "fareBasis": "TAG5AKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "T",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "40",
+            "cabin": "ECONOMY",
+            "fareBasis": "LAG5AKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "L",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "11",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT5H43M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T06:15:00"
+            },
+            "arrival": {
+              "iataCode": "ORD",
+              "terminal": "1",
+              "at": "2026-02-04T07:44:00"
+            },
+            "carrierCode": "UA",
+            "number": "2638",
+            "aircraft": {
+              "code": "73G"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT2H29M",
+            "id": "33",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "ORD",
+              "terminal": "1",
+              "at": "2026-02-04T09:00:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T11:58:00"
+            },
+            "carrierCode": "UA",
+            "number": "307",
+            "aircraft": {
+              "code": "319"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT1H58M",
+            "id": "34",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "477.34",
+      "base": "420.64",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "477.34"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "477.34",
+          "base": "420.64"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "33",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA2AKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "34",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA4PKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "12",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT5H44M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T13:29:00"
+            },
+            "arrival": {
+              "iataCode": "ORD",
+              "terminal": "1",
+              "at": "2026-02-04T14:55:00"
+            },
+            "carrierCode": "UA",
+            "number": "1920",
+            "aircraft": {
+              "code": "73G"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT2H26M",
+            "id": "37",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "ORD",
+              "terminal": "2",
+              "at": "2026-02-04T16:00:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T19:13:00"
+            },
+            "carrierCode": "UA",
+            "number": "3432",
+            "aircraft": {
+              "code": "E7W"
+            },
+            "operating": {
+              "carrierName": "REPUBLIC AIRWAYS DBA UNITED EXPRESS"
+            },
+            "duration": "PT2H13M",
+            "id": "38",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "510.44",
+      "base": "451.34",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "510.44"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "510.44",
+          "base": "451.34"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "37",
+            "cabin": "ECONOMY",
+            "fareBasis": "VAA4AKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "V",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "38",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA4PKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "13",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT7H30M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T13:29:00"
+            },
+            "arrival": {
+              "iataCode": "ORD",
+              "terminal": "1",
+              "at": "2026-02-04T14:55:00"
+            },
+            "carrierCode": "UA",
+            "number": "1920",
+            "aircraft": {
+              "code": "73G"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT2H26M",
+            "id": "23",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "ORD",
+              "terminal": "1",
+              "at": "2026-02-04T18:00:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T20:59:00"
+            },
+            "carrierCode": "UA",
+            "number": "1369",
+            "aircraft": {
+              "code": "738"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT1H59M",
+            "id": "24",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "510.44",
+      "base": "451.34",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "510.44"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "510.44",
+          "base": "451.34"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "23",
+            "cabin": "ECONOMY",
+            "fareBasis": "VAA4AKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "V",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "24",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA4PKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "14",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT7H15M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T16:44:00"
+            },
+            "arrival": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-04T19:10:00"
+            },
+            "carrierCode": "UA",
+            "number": "2407",
+            "aircraft": {
+              "code": "7M8"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT3H26M",
+            "id": "9",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-04T20:00:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T23:59:00"
+            },
+            "carrierCode": "UA",
+            "number": "2224",
+            "aircraft": {
+              "code": "738"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT2H59M",
+            "id": "10",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "642.43",
+      "base": "574.13",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "642.43"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "642.43",
+          "base": "574.13"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "9",
+            "cabin": "ECONOMY",
+            "fareBasis": "VAA4OKEN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "V",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "10",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA4AKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "15",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT7H34M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T06:15:00"
+            },
+            "arrival": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-04T08:37:00"
+            },
+            "carrierCode": "UA",
+            "number": "1383",
+            "aircraft": {
+              "code": "738"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT3H22M",
+            "id": "27",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-04T09:48:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T13:49:00"
+            },
+            "carrierCode": "UA",
+            "number": "2311",
+            "aircraft": {
+              "code": "73G"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT3H1M",
+            "id": "28",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "642.43",
+      "base": "574.13",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "642.43"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "642.43",
+          "base": "574.13"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "27",
+            "cabin": "ECONOMY",
+            "fareBasis": "VAA4OKEN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "V",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "28",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA4AKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "16",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT9H6M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T13:00:00"
+            },
+            "arrival": {
+              "iataCode": "IAH",
+              "terminal": "B",
+              "at": "2026-02-04T15:23:00"
+            },
+            "carrierCode": "UA",
+            "number": "6296",
+            "aircraft": {
+              "code": "E7W"
+            },
+            "operating": {
+              "carrierName": "MESA AIRLINES DBA UNITED EXPRESS"
+            },
+            "duration": "PT3H23M",
+            "id": "3",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-04T18:05:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T22:06:00"
+            },
+            "carrierCode": "UA",
+            "number": "1627",
+            "aircraft": {
+              "code": "320"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT3H1M",
+            "id": "4",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "642.43",
+      "base": "574.13",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "642.43"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "642.43",
+          "base": "574.13"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "3",
+            "cabin": "ECONOMY",
+            "fareBasis": "VAA4OKEN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "V",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "4",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA4AKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "17",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT9H42M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T06:15:00"
+            },
+            "arrival": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-04T08:37:00"
+            },
+            "carrierCode": "UA",
+            "number": "1383",
+            "aircraft": {
+              "code": "738"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT3H22M",
+            "id": "31",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-04T12:00:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T15:57:00"
+            },
+            "carrierCode": "UA",
+            "number": "654",
+            "aircraft": {
+              "code": "319"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT2H57M",
+            "id": "32",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "642.43",
+      "base": "574.13",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "642.43"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "642.43",
+          "base": "574.13"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "31",
+            "cabin": "ECONOMY",
+            "fareBasis": "VAA4OKEN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "V",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "32",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA4AKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "18",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT12H26M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T06:15:00"
+            },
+            "arrival": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-04T13:40:00"
+            },
+            "carrierCode": "UA",
+            "number": "2638",
+            "aircraft": {
+              "code": "73G"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT8H25M",
+            "stops": [
+              {
+                "iataCode": "ORD",
+                "duration": "PT2H51M",
+                "arrivalAt": "2026-02-04T07:44:00",
+                "departureAt": "2026-02-04T10:35:00"
+              }
+            ],
+            "id": "19",
+            "numberOfStops": 1,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "IAH",
+              "terminal": "C",
+              "at": "2026-02-04T14:40:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T18:41:00"
+            },
+            "carrierCode": "UA",
+            "number": "1282",
+            "aircraft": {
+              "code": "320"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT3H1M",
+            "id": "20",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "647.73",
+      "base": "574.13",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "647.73"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "647.73",
+          "base": "574.13"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "19",
+            "cabin": "ECONOMY",
+            "fareBasis": "VAA4OKEN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "V",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "20",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA4AKDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "19",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT13H7M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T08:45:00"
+            },
+            "arrival": {
+              "iataCode": "SFO",
+              "terminal": "3",
+              "at": "2026-02-04T11:56:00"
+            },
+            "carrierCode": "UA",
+            "number": "795",
+            "aircraft": {
+              "code": "7M8"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT6H11M",
+            "id": "5",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "SFO",
+              "terminal": "3",
+              "at": "2026-02-04T13:39:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-04T21:52:00"
+            },
+            "carrierCode": "UA",
+            "number": "2386",
+            "aircraft": {
+              "code": "7M8"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT5H13M",
+            "id": "6",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "741.43",
+      "base": "666.23",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "741.43"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "741.43",
+          "base": "666.23"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "5",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA2ODDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "6",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA4AQDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "flight-offer",
+    "id": "20",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "isUpsellOffer": false,
+    "lastTicketingDate": "2026-01-05",
+    "lastTicketingDateTime": "2026-01-05",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+      {
+        "duration": "PT17H14M",
+        "segments": [
+          {
+            "departure": {
+              "iataCode": "RDU",
+              "terminal": "2",
+              "at": "2026-02-04T18:15:00"
+            },
+            "arrival": {
+              "iataCode": "SFO",
+              "terminal": "3",
+              "at": "2026-02-04T21:26:00"
+            },
+            "carrierCode": "UA",
+            "number": "1769",
+            "aircraft": {
+              "code": "7M9"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT6H11M",
+            "id": "7",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+          },
+          {
+            "departure": {
+              "iataCode": "SFO",
+              "terminal": "3",
+              "at": "2026-02-05T00:43:00"
+            },
+            "arrival": {
+              "iataCode": "DCA",
+              "terminal": "2",
+              "at": "2026-02-05T11:29:00"
+            },
+            "carrierCode": "UA",
+            "number": "512",
+            "aircraft": {
+              "code": "7M9"
+            },
+            "operating": {
+              "carrierCode": "UA"
+            },
+            "duration": "PT7H46M",
+            "stops": [
+              {
+                "iataCode": "IAH",
+                "duration": "PT1H1M",
+                "arrivalAt": "2026-02-05T06:29:00",
+                "departureAt": "2026-02-05T07:30:00"
+              }
+            ],
+            "id": "8",
+            "numberOfStops": 1,
+            "blacklistedInEU": false
+          }
+        ]
+      }
+    ],
+    "price": {
+      "currency": "USD",
+      "total": "746.73",
+      "base": "666.23",
+      "fees": [
+        {
+          "amount": "0.00",
+          "type": "SUPPLIER"
+        },
+        {
+          "amount": "0.00",
+          "type": "TICKETING"
+        }
+      ],
+      "grandTotal": "746.73"
+    },
+    "pricingOptions": {
+      "fareType": [
+        "PUBLISHED"
+      ],
+      "includedCheckedBagsOnly": false
+    },
+    "validatingAirlineCodes": [
+      "UA"
+    ],
+    "travelerPricings": [
+      {
+        "travelerId": "1",
+        "fareOption": "STANDARD",
+        "travelerType": "ADULT",
+        "price": {
+          "currency": "USD",
+          "total": "746.73",
+          "base": "666.23"
+        },
+        "fareDetailsBySegment": [
+          {
+            "segmentId": "7",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA2ODDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
+            "includedCheckedBags": {
+              "quantity": 0
+            },
+            "includedCabinBags": {
+              "quantity": 1
+            },
+            "amenities": [
+              {
+                "description": "CHECKED BAG FIRST",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "SECOND BAG",
+                "isChargeable": true,
+                "amenityType": "BAGGAGE",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRE RESERVED SEAT ASSIGNMENT",
+                "isChargeable": false,
+                "amenityType": "PRE_RESERVED_SEAT",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "PRIORITY BOARDING",
+                "isChargeable": true,
+                "amenityType": "TRAVEL_SERVICES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "ECONOMY TO ECONOMY PLUS",
+                "isChargeable": true,
+                "amenityType": "UPGRADES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              },
+              {
+                "description": "MILEAGE ACCRUAL",
+                "isChargeable": false,
+                "amenityType": "BRANDED_FARES",
+                "amenityProvider": {
+                  "name": "BrandedFare"
+                }
+              }
+            ]
+          },
+          {
+            "segmentId": "8",
+            "cabin": "ECONOMY",
+            "fareBasis": "WAA4AQDN",
+            "brandedFare": "ECONOMY",
+            "brandedFareLabel": "ECONOMY",
+            "class": "W",
             "includedCheckedBags": {
               "quantity": 0
             },

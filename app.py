@@ -5,15 +5,13 @@ import json
 import sqlite3
 from amadeus import Client, ResponseError
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, g
+from flask import Flask, redirect, render_template, request, g
 
 load_dotenv()
 
 app = Flask(__name__)
 
 # Database connection preventing multiple thread usage issues
-
-
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect('tracked.db')
@@ -59,8 +57,6 @@ def get_flight_offers(origin, destination, departure_date, adults, airline_code,
             params['includedAirlineCodes'] = airline_code
         if max_results:
             params['max'] = int(max_results)
-
-        print(params)
 
         response = amadeus.shopping.flight_offers_search.get(**params)
 
@@ -168,15 +164,7 @@ def autotrack():
                     (origin, destination, departure_date, adults, max_results, airline_code))
         db.commit()
 
-        db = get_db()
-        db.row_factory = sqlite3.Row
-        cur = db.cursor()
-        cur.execute("SELECT * FROM searches")
-        tracked_table = cur.fetchall()
-
-        print([dict(row) for row in tracked_table])
-
-        return render_template('autotrack.html', tracked_table=tracked_table)
+        return redirect('/autotrack')
 
     else:
         
@@ -187,3 +175,89 @@ def autotrack():
         tracked_table = cur.fetchall()
 
         return render_template('autotrack.html', tracked_table=tracked_table)
+
+
+@app.route('/delete/<int:search_id>', methods=['POST'])
+def delete_search(search_id):
+    """Route to delete a tracked search"""
+
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("DELETE FROM searches WHERE id = ?", (search_id,))
+    db.commit()
+
+    return redirect('/autotrack')
+
+
+@app.route('/check/<int:search_id>', methods=['POST'])
+def check_search(search_id):
+    """Route to check a tracked search immediately"""
+
+    db = get_db()
+    db.row_factory = sqlite3.Row
+    cur = db.cursor()
+    cur.execute("SELECT * FROM searches WHERE id = ?", (search_id,))
+    search = cur.fetchone()
+
+    print([dict(search)])
+
+    if search is None:
+        return "Search not found.", 404
+
+    response = get_flight_offers(
+        origin=search['origin'],
+        destination=search['destination'],
+        departure_date=search['date'],
+        adults=search['adults'],
+        airline_code=search['airline'],
+        max_results=search['results']
+    )
+
+    if response is None:
+        return "Error retrieving flight offers."
+
+    # Save response to a JSON file
+    with open("flight_offers.json", "w", encoding="utf-8") as file:
+        json.dump(response.data, file, indent=2)
+    print("\nFlight offers saved to flight_offers.json")
+
+    # Create an empty list to hold flight data for rendering in Flask
+    flight_data = []
+
+    for flight in response.data:
+        legs = len(flight['itineraries'][0]['segments'])
+        # Contains duration and segments
+        itinerary = flight['itineraries'][0]
+        # Contains each flight leg details
+        segments = itinerary['segments']
+
+        flight_info = {
+            "search_no": flight['id'],
+            "stops": (legs - 1),
+            "departure_airport": segments[0]['departure']['iataCode'],
+            "departure_time": segments[0]['departure']['at'],
+            "arrival_airport": segments[-1]['arrival']['iataCode'],
+            "arrival_time": segments[-1]['arrival']['at'],
+            "duration": flight['itineraries'][0]['duration'],
+            "carrier_code": flight['validatingAirlineCodes'][0],
+            "price": flight['price']['grandTotal'],
+            "bookable_seats": flight['numberOfBookableSeats']
+        }
+        flight_data.append(flight_info)
+
+        for i in range(legs):
+            # Need to print each leg details
+            flight_info_leg = {
+                "stops": f"Leg: {i + 1}",  # Actually indicates leg number
+                "departure_airport": segments[i]['departure']['iataCode'],
+                "departure_time": segments[i]['departure']['at'],
+                "arrival_airport": segments[i]['arrival']['iataCode'],
+                "arrival_time": segments[i]['arrival']['at'],
+                "duration": segments[i]['duration'],
+                "carrier_code": segments[i]['carrierCode'],
+                "flight_number": segments[i]['number']
+            }
+            flight_data.append(flight_info_leg)
+
+
+    return render_template('index.html', flights=flight_data)
