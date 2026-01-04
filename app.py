@@ -65,6 +65,50 @@ def get_flight_offers(origin, destination, departure_date, adults, airline_code,
     except ResponseError as error:
         print(f"An error occurred: {error}")
         return None
+    
+
+def process_flight_data(response):
+    """Function to process flight data from Amadeus response"""
+
+    # Create an empty list to hold flight data for rendering in Flask
+    flight_data = []
+
+    for flight in response.data:
+        legs = len(flight['itineraries'][0]['segments'])
+        # Contains duration and segments
+        itinerary = flight['itineraries'][0]
+        # Contains each flight leg details
+        segments = itinerary['segments']
+
+        flight_info = {
+            "search_no": flight['id'],
+            "stops": (legs - 1),
+            "departure_airport": segments[0]['departure']['iataCode'],
+            "departure_time": segments[0]['departure']['at'],
+            "arrival_airport": segments[-1]['arrival']['iataCode'],
+            "arrival_time": segments[-1]['arrival']['at'],
+            "duration": flight['itineraries'][0]['duration'],
+            "carrier_code": flight['validatingAirlineCodes'][0],
+            "price": flight['price']['grandTotal'],
+            "bookable_seats": flight['numberOfBookableSeats']
+        }
+        flight_data.append(flight_info)
+
+        for i in range(legs):
+            # Need to print each leg details
+            flight_info_leg = {
+                "stops": f"Leg: {i + 1}",  # Actually indicates leg number
+                "departure_airport": segments[i]['departure']['iataCode'],
+                "departure_time": segments[i]['departure']['at'],
+                "arrival_airport": segments[i]['arrival']['iataCode'],
+                "arrival_time": segments[i]['arrival']['at'],
+                "duration": segments[i]['duration'],
+                "carrier_code": segments[i]['carrierCode'],
+                "flight_number": segments[i]['number']
+            }
+            flight_data.append(flight_info_leg)
+
+    return flight_data
 
 
 # Flask route to render a simple homepage
@@ -101,43 +145,7 @@ def index():
             json.dump(response.data, file, indent=2)
         print("\nFlight offers saved to flight_offers.json")
 
-        # Create an empty list to hold flight data for rendering in Flask
-        flight_data = []
-
-        for flight in response.data:
-            legs = len(flight['itineraries'][0]['segments'])
-            # Contains duration and segments
-            itinerary = flight['itineraries'][0]
-            # Contains each flight leg details
-            segments = itinerary['segments']
-
-            flight_info = {
-                "search_no": flight['id'],
-                "stops": (legs - 1),
-                "departure_airport": segments[0]['departure']['iataCode'],
-                "departure_time": segments[0]['departure']['at'],
-                "arrival_airport": segments[-1]['arrival']['iataCode'],
-                "arrival_time": segments[-1]['arrival']['at'],
-                "duration": flight['itineraries'][0]['duration'],
-                "carrier_code": flight['validatingAirlineCodes'][0],
-                "price": flight['price']['grandTotal'],
-                "bookable_seats": flight['numberOfBookableSeats']
-            }
-            flight_data.append(flight_info)
-
-            for i in range(legs):
-                # Need to print each leg details
-                flight_info_leg = {
-                    "stops": f"Leg: {i + 1}",  # Actually indicates leg number
-                    "departure_airport": segments[i]['departure']['iataCode'],
-                    "departure_time": segments[i]['departure']['at'],
-                    "arrival_airport": segments[i]['arrival']['iataCode'],
-                    "arrival_time": segments[i]['arrival']['at'],
-                    "duration": segments[i]['duration'],
-                    "carrier_code": segments[i]['carrierCode'],
-                    "flight_number": segments[i]['number']
-                }
-                flight_data.append(flight_info_leg)
+        flight_data = process_flight_data(response)
 
         return render_template('index.html', flights=flight_data)
 
@@ -221,43 +229,6 @@ def check_search(search_id):
         json.dump(response.data, file, indent=2)
     print("\nFlight offers saved to flight_offers.json")
 
-    # Create an empty list to hold flight data for rendering in Flask
-    flight_data = []
-
-    for flight in response.data:
-        legs = len(flight['itineraries'][0]['segments'])
-        # Contains duration and segments
-        itinerary = flight['itineraries'][0]
-        # Contains each flight leg details
-        segments = itinerary['segments']
-
-        flight_info = {
-            "search_no": flight['id'],
-            "stops": (legs - 1),
-            "departure_airport": segments[0]['departure']['iataCode'],
-            "departure_time": segments[0]['departure']['at'],
-            "arrival_airport": segments[-1]['arrival']['iataCode'],
-            "arrival_time": segments[-1]['arrival']['at'],
-            "duration": flight['itineraries'][0]['duration'],
-            "carrier_code": flight['validatingAirlineCodes'][0],
-            "price": flight['price']['grandTotal'],
-            "bookable_seats": flight['numberOfBookableSeats']
-        }
-        flight_data.append(flight_info)
-
-        for i in range(legs):
-            # Need to print each leg details
-            flight_info_leg = {
-                "stops": f"Leg: {i + 1}",  # Actually indicates leg number
-                "departure_airport": segments[i]['departure']['iataCode'],
-                "departure_time": segments[i]['departure']['at'],
-                "arrival_airport": segments[i]['arrival']['iataCode'],
-                "arrival_time": segments[i]['arrival']['at'],
-                "duration": segments[i]['duration'],
-                "carrier_code": segments[i]['carrierCode'],
-                "flight_number": segments[i]['number']
-            }
-            flight_data.append(flight_info_leg)
-
+    flight_data = process_flight_data(response)
 
     return render_template('index.html', flights=flight_data)
