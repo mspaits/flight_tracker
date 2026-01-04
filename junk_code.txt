@@ -28,3 +28,15 @@
         print("Duration:", segments[i]['duration'])
         print("Carrier Code:", get_airline_name(segments[i]['carrierCode']))
         print("Flight Number:", segments[i]['number'])"""
+
+
+
+        # Get flight offers
+        response = get_flight_offers(
+            origin="RDU",
+            destination="MIA",
+            departure_date="2026-01-19",
+            adults=1,
+            airline_code="UA",
+            max_results=5
+        )
