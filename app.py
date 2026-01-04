@@ -53,11 +53,12 @@ def get_flight_offers(origin, destination, departure_date, adults, airline_code,
             destinationLocationCode=destination,
             departureDate=departure_date,
             adults=adults,
-            max=max_results,
             currencyCode='USD'
         )
         if airline_code:
             params['includedAirlineCodes'] = airline_code
+        if max_results:
+            params['max'] = int(max_results)
 
         print(params)
 
@@ -84,7 +85,7 @@ def index():
         departure_date = request.form.get('departure_date')
         adults = int(request.form.get('adults', 1))
         airline_code = request.form.get('airline_code')
-        max_results = int(request.form.get('max_results', 5))
+        max_results = request.form.get('max_results')
 
         # Call function to get flight offers
         response = get_flight_offers(
@@ -159,7 +160,7 @@ def autotrack():
         departure_date = request.form.get('departure_date')
         adults = int(request.form.get('adults', 1))
         airline_code = request.form.get('airline_code')
-        max_results = int(request.form.get('max_results', 5))
+        max_results = request.form.get('max_results')
 
         db = get_db()
         cur = db.cursor()
@@ -167,4 +168,22 @@ def autotrack():
                     (origin, destination, departure_date, adults, max_results, airline_code))
         db.commit()
 
-    return render_template('autotrack.html')
+        db = get_db()
+        db.row_factory = sqlite3.Row
+        cur = db.cursor()
+        cur.execute("SELECT * FROM searches")
+        tracked_table = cur.fetchall()
+
+        print([dict(row) for row in tracked_table])
+
+        return render_template('autotrack.html', tracked_table=tracked_table)
+
+    else:
+        
+        db = get_db()
+        db.row_factory = sqlite3.Row
+        cur = db.cursor()
+        cur.execute("SELECT * FROM searches")
+        tracked_table = cur.fetchall()
+
+        return render_template('autotrack.html', tracked_table=tracked_table)
