@@ -6,12 +6,14 @@ import sqlite3
 from amadeus import Client, ResponseError
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, g
+from pprint import pprint
+
 
 load_dotenv()
 
 app = Flask(__name__)
 
-# Database connection preventing multiple thread usage issues
+# Database connection preventing multiple thread usage issues.  Per copilot suggestion.
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect('tracked.db')
@@ -103,7 +105,8 @@ def process_flight_data(response):
                 "arrival_airport": segments[i]['arrival']['iataCode'],
                 "arrival_time": segments[i]['arrival']['at'],
                 "duration": segments[i]['duration'],
-                "carrier_code": segments[i]['carrierCode'],
+                "carrier_code": segments[i]['operating'].get('carrierCode') or 
+                    segments[i]['operating'].get('carrierName'),
                 "flight_number": segments[i]['number']
             }
             flight_data.append(flight_info_leg)
@@ -155,7 +158,7 @@ def index():
 
 @app.route('/autotrack', methods=['GET', 'POST'])
 def autotrack():
-    """Route for auto-tracking flights"""
+    """Route for auto-tracking flights.  Adds searches to the db and displays tracked searches."""
 
     if request.method == 'POST':
         # Get data from HTML form
@@ -166,6 +169,7 @@ def autotrack():
         airline_code = request.form.get('airline_code')
         max_results = request.form.get('max_results')
 
+        # Apparently this is what you need to do to access Sqlite3 outside of CS50 IDE.
         db = get_db()
         cur = db.cursor()
         cur.execute("INSERT INTO searches (origin, destination, date, adults, results, airline) VALUES (?, ?, ?, ?, ?, ?)",
@@ -176,15 +180,17 @@ def autotrack():
 
     else:
         
+        # Retrieve tracked searches from the database to render on webpage
         db = get_db()
         db.row_factory = sqlite3.Row
         cur = db.cursor()
         cur.execute("SELECT * FROM searches")
-        tracked_table = cur.fetchall()
+        tracked_table = cur.fetchall()  # Fetches all rows
 
         return render_template('autotrack.html', tracked_table=tracked_table)
 
 
+# I got this method of passing in the search_id from a copilot suggestion
 @app.route('/delete/<int:search_id>', methods=['POST'])
 def delete_search(search_id):
     """Route to delete a tracked search"""
@@ -205,7 +211,7 @@ def check_search(search_id):
     db.row_factory = sqlite3.Row
     cur = db.cursor()
     cur.execute("SELECT * FROM searches WHERE id = ?", (search_id,))
-    search = cur.fetchone()
+    search = cur.fetchone()  # Fetches one row
 
     print([dict(search)])
 
@@ -230,5 +236,10 @@ def check_search(search_id):
     print("\nFlight offers saved to flight_offers.json")
 
     flight_data = process_flight_data(response)
+
+    # Save to txt file
+    with open("flight_offers.txt", "w", encoding="utf-8") as file:
+        pprint(flight_data, stream=file, sort_dicts=False)
+    print("\nFlight offers saved to flight_offers.txt")
 
     return render_template('index.html', flights=flight_data)
