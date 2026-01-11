@@ -15,6 +15,7 @@ pip-wheel-metadata/
 *.env
 credentials.json
 token.json
+*.json
 
 # IDE/editor
 .vscode/
@@ -37,3 +38,6 @@ venv/
 # Junk files
 junk_code.txt
 flight_offers.txt
+
+# Database files
+*.db

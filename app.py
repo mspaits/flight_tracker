@@ -150,6 +150,7 @@ def gmail_send_message(flight_data):
 
     creds = get_gmail_creds()
 
+    # Codex recommendation
     buffer = StringIO()
     pprint(flight_data, stream=buffer, sort_dicts=False)
     ppflight_data = buffer.getvalue()
