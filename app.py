@@ -26,7 +26,7 @@ app = Flask(__name__)
 # Database connection preventing multiple thread usage issues.  Per copilot suggestion.
 def get_db():
     if 'db' not in g:
-        g.db = sqlite3.connect('tracked.db')
+        g.db = sqlite3.connect('data/tracked.db')
     return g.db
 
 
