@@ -7,8 +7,8 @@
     "nonHomogeneous": false,
     "oneWay": false,
     "isUpsellOffer": false,
-    "lastTicketingDate": "2026-01-11",
-    "lastTicketingDateTime": "2026-01-11",
+    "lastTicketingDate": "2026-01-12",
+    "lastTicketingDateTime": "2026-01-12",
     "numberOfBookableSeats": 1,
     "itineraries": [
       {
@@ -351,8 +351,8 @@
     "nonHomogeneous": false,
     "oneWay": false,
     "isUpsellOffer": false,
-    "lastTicketingDate": "2026-01-13",
-    "lastTicketingDateTime": "2026-01-13",
+    "lastTicketingDate": "2026-01-14",
+    "lastTicketingDateTime": "2026-01-14",
     "numberOfBookableSeats": 9,
     "itineraries": [
       {
@@ -649,8 +649,8 @@
     "nonHomogeneous": false,
     "oneWay": false,
     "isUpsellOffer": false,
-    "lastTicketingDate": "2026-01-13",
-    "lastTicketingDateTime": "2026-01-13",
+    "lastTicketingDate": "2026-01-14",
+    "lastTicketingDateTime": "2026-01-14",
     "numberOfBookableSeats": 9,
     "itineraries": [
       {

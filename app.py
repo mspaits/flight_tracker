@@ -1,17 +1,27 @@
 """Flight Tracker Application using Amadeus API"""
 
+from io import StringIO
 import os
 import json
+import base64
+import google.auth
 import sqlite3
+from pprint import pprint
+from email.message import EmailMessage
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
 from amadeus import Client, ResponseError
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, g
-from pprint import pprint
 
 
 load_dotenv()
 
 app = Flask(__name__)
+
 
 # Database connection preventing multiple thread usage issues.  Per copilot suggestion.
 def get_db():
@@ -67,7 +77,7 @@ def get_flight_offers(origin, destination, departure_date, adults, airline_code,
     except ResponseError as error:
         print(f"An error occurred: {error}")
         return None
-    
+
 
 def process_flight_data(response):
     """Function to process flight data from Amadeus response"""
@@ -105,13 +115,68 @@ def process_flight_data(response):
                 "arrival_airport": segments[i]['arrival']['iataCode'],
                 "arrival_time": segments[i]['arrival']['at'],
                 "duration": segments[i]['duration'],
-                "carrier_code": segments[i]['operating'].get('carrierCode') or 
-                    segments[i]['operating'].get('carrierName'),
+                "carrier_code": segments[i]['operating'].get('carrierCode') or
+                segments[i]['operating'].get('carrierName'),
                 "flight_number": segments[i]['number']
             }
             flight_data.append(flight_info_leg)
 
     return flight_data
+
+
+# Straight up copied this from Codex.  Decided to do it the right way with OAuth2 and got in way deep.
+def get_gmail_creds():
+
+    SCOPES = ["https://www.googleapis.com/auth/gmail.send"]
+
+    creds = None
+    if os.path.exists("token.json"):
+        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file(
+                "credentials.json", SCOPES)
+            creds = flow.run_local_server(port=0)
+        with open("token.json", "w") as token:
+            token.write(creds.to_json())
+    return creds
+
+
+# Create function to email out results.  From Google Gmail API quickstart.
+def gmail_send_message(flight_data):
+    """Email flight offers using Gmail API"""
+
+    creds = get_gmail_creds()
+
+    buffer = StringIO()
+    pprint(flight_data, stream=buffer, sort_dicts=False)
+    ppflight_data = buffer.getvalue()
+
+    try:
+        service = build("gmail", "v1", credentials=creds)
+        message = EmailMessage()
+
+        message['To'] = "mspaitsdev@gmail.com"
+        message['From'] = "mspaitsdev@gmail.com"
+        message['Subject'] = "Flight Offers Test"
+
+        message.set_content(f"Flight offers are so great!\n {ppflight_data}")
+
+        # Encode the message
+        encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
+
+        create_message = {'raw': encoded_message}
+        # pyling: disable=E1101
+        send_message = (service.users().messages().send(
+            userId="me", body=create_message).execute())
+        print(F'Message Id: {send_message["id"]}')
+
+    except HttpError as error:
+        print(f'An error occurred: {error}')
+        send_message = None
+    return send_message
 
 
 # Flask route to render a simple homepage
@@ -179,7 +244,7 @@ def autotrack():
         return redirect('/autotrack')
 
     else:
-        
+
         # Retrieve tracked searches from the database to render on webpage
         db = get_db()
         db.row_factory = sqlite3.Row
@@ -241,5 +306,7 @@ def check_search(search_id):
     with open("flight_offers.txt", "w", encoding="utf-8") as file:
         pprint(flight_data, stream=file, sort_dicts=False)
     print("\nFlight offers saved to flight_offers.txt")
+
+    gmail_send_message(flight_data)
 
     return render_template('index.html', flights=flight_data)
