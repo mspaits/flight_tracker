@@ -15,7 +15,7 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from amadeus import Client, ResponseError
 from dotenv import load_dotenv
-from flask import Flask, redirect, render_template, request, g
+from flask import Flask, current_app, redirect, render_template, request, g
 
 
 load_dotenv()
@@ -126,20 +126,23 @@ def process_flight_data(response):
 
 # Straight up copied this from Codex.  Decided to do it the right way with OAuth2 and got in way deep.
 def get_gmail_creds():
-
+    
     SCOPES = ["https://www.googleapis.com/auth/gmail.send"]
 
+    secrets_dir = os.path.join(current_app.root_path, "secrets")
+    token_path = os.path.join(secrets_dir, "token.json")
+    client_path = os.path.join(secrets_dir, "credentials.json")
+
     creds = None
-    if os.path.exists("token.json"):
-        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+    if os.path.exists(token_path):
+        creds = Credentials.from_authorized_user_file(token_path, SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                "credentials.json", SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file(client_path, SCOPES)
             creds = flow.run_local_server(port=0)
-        with open("token.json", "w") as token:
+        with open(token_path, "w") as token:
             token.write(creds.to_json())
     return creds
 
