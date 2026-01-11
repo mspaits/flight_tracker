@@ -16,6 +16,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from amadeus import Client, ResponseError
 from dotenv import load_dotenv
 from flask import Flask, current_app, redirect, render_template, request, g
+from pathlib import Path
 
 
 load_dotenv()
@@ -126,24 +127,30 @@ def process_flight_data(response):
 
 # Straight up copied this from Codex.  Decided to do it the right way with OAuth2 and got in way deep.
 def get_gmail_creds():
-    
+
     SCOPES = ["https://www.googleapis.com/auth/gmail.send"]
 
-    secrets_dir = os.path.join(current_app.root_path, "secrets")
-    token_path = os.path.join(secrets_dir, "token.json")
-    client_path = os.path.join(secrets_dir, "credentials.json")
+    # SECRETS_DIR can be set in .env; otherwise default to "<app>/secrets"
+    secrets_dir = os.getenv("SECRETS_DIR") or os.path.join(current_app.root_path, "secrets")
+
+    secrets_dir = Path(secrets_dir)
+    token_path = secrets_dir / "token.json"
+    client_path = secrets_dir / "credentials.json"
+
+    secrets_dir.mkdir(parents=True, exist_ok=True)
 
     creds = None
-    if os.path.exists(token_path):
-        creds = Credentials.from_authorized_user_file(token_path, SCOPES)
+    if token_path.exists():
+        creds = Credentials.from_authorized_user_file(str(token_path), SCOPES)
+
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file(client_path, SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file(str(client_path), SCOPES)
             creds = flow.run_local_server(port=0)
-        with open(token_path, "w") as token:
-            token.write(creds.to_json())
+        token_path.write_text(creds.to_json())
+
     return creds
 
 
@@ -311,6 +318,6 @@ def check_search(search_id):
         pprint(flight_data, stream=file, sort_dicts=False)
     print("\nFlight offers saved to flight_offers.txt")
 
-    #gmail_send_message(flight_data)
+    gmail_send_message(flight_data)
 
     return render_template('index.html', flights=flight_data)
