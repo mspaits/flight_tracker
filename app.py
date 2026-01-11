@@ -308,6 +308,6 @@ def check_search(search_id):
         pprint(flight_data, stream=file, sort_dicts=False)
     print("\nFlight offers saved to flight_offers.txt")
 
-    gmail_send_message(flight_data)
+    #gmail_send_message(flight_data)
 
     return render_template('index.html', flights=flight_data)
