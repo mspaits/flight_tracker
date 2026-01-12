@@ -44,6 +44,11 @@
                     <input autocomplete="off" name="max_results" placeholder="Max Results" id="bookFlightMaxResultsInput" type="number">
                 </div>
 
+                <div class="form-group">
+                    <label for="bookFlightEmailInput">Email (optional)</label>
+                    <input autocomplete="off" name="email" placeholder="Email - will activate auto track" id="bookFlightEmailInput" type="text">
+                </div>
+
                 <div class="form-group submit">
                     <input type="submit" value="Track Route">
                 </div>
@@ -64,6 +69,7 @@
                         <th># Adults</th>
                         <th>Max Results</th>
                         <th>Airline Code</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,18 +82,38 @@
                         <td>{{ search.adults }}</td>
                         <td>{{ search.results }}</td>
                         <td>{{ search.airline }}</td>
-                        <td class="button_column">
-                            <form action="/delete/{{ search.id }}" method="post">
-                                <input type="submit" value="Delete">
-                            </form>
-                        </td>
+                        <td>{{ search.email }}</td>
                         <td class="button_column">
                             <form action="/check/{{ search.id }}" method="post">
                                 <input type="submit" value="Search Now">
                             </form>
                         </td>
+                        <td class="button_column">
+                            <form action="/delete/{{ search.id }}" method="post">
+                                <input type="submit" value="Delete Route">
+                            </form>
+                        </td>
+                        <td class="button_column">
+                            <form action="/add_email/{{ search.id }}" method="post" class="add-email-form">
+                                <input type="hidden" name="email" class="row-email-input">
+                                <input type="submit" value="Add Email">
+                            </form>
+                        </td>
+                        <td class="button_column">
+                            <form action="/remove_email/{{ search.id }}" method="post">
+                                <input type="submit" value="Remove Email">
+                            </form>
+                        </td>
                     </tr>
                     {% endfor %}
+                    <script>
+                        document.querySelectorAll('.add-email-form').forEach(function(form) {
+                            form.addEventListener('submit', function() {
+                                var email = document.querySelector('#bookFlightEmailInput').value;
+                                form.querySelector('.row-email-input').value = email;
+                            });
+                        });
+                    </script>
                 </tbody>
             </table>
         </div>

@@ -155,7 +155,7 @@ def get_gmail_creds():
 
 
 # Create function to email out results.  From Google Gmail API quickstart.
-def gmail_send_message(flight_data):
+def gmail_send_message(flight_data, to_email, subject=None):
     """Email flight offers using Gmail API"""
 
     creds = get_gmail_creds()
@@ -169,9 +169,9 @@ def gmail_send_message(flight_data):
         service = build("gmail", "v1", credentials=creds)
         message = EmailMessage()
 
-        message['To'] = "mspaitsdev@gmail.com"
+        message['To'] = to_email
         message['From'] = "mspaitsdev@gmail.com"
-        message['Subject'] = "Flight Offers Test"
+        message['Subject'] = subject or "Flight Offers"
 
         message.set_content(f"Flight offers are so great!\n {ppflight_data}")
 
@@ -244,12 +244,13 @@ def autotrack():
         adults = int(request.form.get('adults', 1))
         airline_code = request.form.get('airline_code')
         max_results = request.form.get('max_results')
+        email = request.form.get('email')
 
         # Apparently this is what you need to do to access Sqlite3 outside of CS50 IDE.
         db = get_db()
         cur = db.cursor()
-        cur.execute("INSERT INTO searches (origin, destination, date, adults, results, airline) VALUES (?, ?, ?, ?, ?, ?)",
-                    (origin, destination, departure_date, adults, max_results, airline_code))
+        cur.execute("INSERT INTO searches (origin, destination, date, adults, results, airline, email) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    (origin, destination, departure_date, adults, max_results, airline_code, email))
         db.commit()
 
         return redirect('/autotrack')
@@ -264,19 +265,6 @@ def autotrack():
         tracked_table = cur.fetchall()  # Fetches all rows
 
         return render_template('autotrack.html', tracked_table=tracked_table)
-
-
-# I got this method of passing in the search_id from a copilot suggestion
-@app.route('/delete/<int:search_id>', methods=['POST'])
-def delete_search(search_id):
-    """Route to delete a tracked search"""
-
-    db = get_db()
-    cur = db.cursor()
-    cur.execute("DELETE FROM searches WHERE id = ?", (search_id,))
-    db.commit()
-
-    return redirect('/autotrack')
 
 
 @app.route('/check/<int:search_id>', methods=['POST'])
@@ -318,6 +306,75 @@ def check_search(search_id):
         pprint(flight_data, stream=file, sort_dicts=False)
     print("\nFlight offers saved to flight_offers.txt")
 
-    gmail_send_message(flight_data)
-
     return render_template('index.html', flights=flight_data)
+
+
+# I got this method of passing in the search_id from a copilot suggestion
+@app.route('/delete/<int:search_id>', methods=['POST'])
+def delete_search(search_id):
+    """Route to delete a tracked search"""
+
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("DELETE FROM searches WHERE id = ?", (search_id,))
+    db.commit()
+
+    return redirect('/autotrack')
+
+
+@app.route('/add_email/<int:search_id>', methods=['POST'])
+def add_email(search_id):
+    """Route to delete a email and stop auto track"""
+
+    email = request.form.get('email')
+
+    if email:
+        db = get_db()
+        cur = db.cursor()
+        cur.execute("UPDATE searches SET email = ? WHERE id = ?", (email, search_id,))
+        db.commit()
+
+    return redirect('/autotrack')
+
+
+@app.route('/remove_email/<int:search_id>', methods=['POST'])
+def remove_email(search_id):
+    """Route to delete a email and stop auto track"""
+
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("UPDATE searches SET email = NULL WHERE id = ?", (search_id,))
+    db.commit()
+
+    return redirect('/autotrack')
+
+
+# Setting up a scheduled task to send out search results daily
+def send_daily_search():
+    """Itterates through the saved search list.  If email present: searches flights, and emails results"""
+
+    with app.app_context():
+        db = get_db()
+        db.row_factory = sqlite3.Row
+        cur = db.cursor()
+        cur.execute("SELECT * FROM searches WHERE email IS NOT NULL AND email != ''")
+        searches = cur.fetchall()  # Fetches one row
+
+        for search in searches:
+            response = get_flight_offers(
+                origin=search['origin'],
+                destination=search['destination'],
+                departure_date=search['date'],
+                adults=search['adults'],
+                airline_code=search['airline'],
+                max_results=search['results']
+            )
+
+            if response is None:
+                continue
+
+            flight_data = process_flight_data(response)
+            subject = f"Flight Offers {search['origin']}->{search['destination']} {search['date']}"
+            gmail_send_message(flight_data, search['email'], subject=subject)
+
+            
