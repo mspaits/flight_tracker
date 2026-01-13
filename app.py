@@ -23,11 +23,16 @@ load_dotenv()
 
 app = Flask(__name__)
 
+BASE_DIR = Path(__file__).resolve().parent
+DB_PATH = BASE_DIR / "data" / "tracked.db"
 
 # Database connection preventing multiple thread usage issues.  Per copilot suggestion.
 def get_db():
     if 'db' not in g:
-        g.db = sqlite3.connect('data/tracked.db')
+        DB_PATH.parent.mkdir(parents=True, exist_ok=True) # Ensures data exists
+        conn = sqlite3.connect(str(DB_PATH))
+        conn.row_factory = sqlite3.Row
+        g.db = conn
     return g.db
 
 
@@ -173,7 +178,7 @@ def gmail_send_message(flight_data, to_email, subject=None):
         message['From'] = "mspaitsdev@gmail.com"
         message['Subject'] = subject or "Flight Offers"
 
-        message.set_content(f"Flight offers are so great!\n {ppflight_data}")
+        message.set_content(f"Flight offers!\n {ppflight_data}")
 
         # Encode the message
         encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
@@ -259,7 +264,6 @@ def autotrack():
 
         # Retrieve tracked searches from the database to render on webpage
         db = get_db()
-        db.row_factory = sqlite3.Row
         cur = db.cursor()
         cur.execute("SELECT * FROM searches")
         tracked_table = cur.fetchall()  # Fetches all rows
@@ -272,7 +276,6 @@ def check_search(search_id):
     """Route to check a tracked search immediately"""
 
     db = get_db()
-    db.row_factory = sqlite3.Row
     cur = db.cursor()
     cur.execute("SELECT * FROM searches WHERE id = ?", (search_id,))
     search = cur.fetchone()  # Fetches one row
@@ -305,6 +308,8 @@ def check_search(search_id):
     with open("flight_offers.txt", "w", encoding="utf-8") as file:
         pprint(flight_data, stream=file, sort_dicts=False)
     print("\nFlight offers saved to flight_offers.txt")
+
+    #gmail_send_message(flight_data, "mspaits@gmail.com")
 
     return render_template('index.html', flights=flight_data)
 
@@ -351,11 +356,10 @@ def remove_email(search_id):
 
 # Setting up a scheduled task to send out search results daily
 def send_daily_search():
-    """Itterates through the saved search list.  If email present: searches flights, and emails results"""
+    """Iterates through the saved search list.  If email present: searches flights, and emails results"""
 
     with app.app_context():
         db = get_db()
-        db.row_factory = sqlite3.Row
         cur = db.cursor()
         cur.execute("SELECT * FROM searches WHERE email IS NOT NULL AND email != ''")
         searches = cur.fetchall()  # Fetches one row
@@ -376,5 +380,3 @@ def send_daily_search():
             flight_data = process_flight_data(response)
             subject = f"Flight Offers {search['origin']}->{search['destination']} {search['date']}"
             gmail_send_message(flight_data, search['email'], subject=subject)
-
-            
