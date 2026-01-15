@@ -9,87 +9,97 @@
 
         <title>Flight Tracker</title>
     </head>
-    <body>
-        <div class="header">
-            <h1>Flight Tracker v1.0!</h1>
-        </div>
-        <div class="section">
-            <h2>Search Flights</h2>
-            <form action="/" method="post" class="search_form">
-                <div class="form-group">
-                    <label for="bookFlightOriginInput">From</label>
-                    <input autocomplete="off" autofocus name="origin" placeholder="Departure Airport eg(RDU)" id="bookFlightOriginInput" type="text">
-                </div>
 
-                <div class="form-group">
-                    <label for="bookFlightDestinationInput">To</label>
-                    <input autocomplete="off" name="destination" placeholder="Arrival Airport eg(MIA)" id="bookFlightDestinationInput" type="text">
-                </div>
+    <body class="bg-light">
+        <div class="container py-4">
+            <header class="text-center mb-4">
+                <h1 class="display-5 fw-semibold">Flight Tracker v1.0!</h1>
+                <p class="text-muted mb-0">Search and monitor routes in seconds</p>
+            </header>
 
-                <div class="form-group">
-                    <label for="bookFlightDepartureDateInput">Departure Date</label>
-                    <input autocomplete="off" name="departure_date" placeholder="Departure Date eg(2026-01-19)" id="bookFlightDepartureDateInput" type="date">
-                </div>
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h2 class="h5 mb-3">Search Flights</h2>
+                    <form action="/" method="post" class="row g-3">
+                        <div class="col-md-4">
+                            <label for="bookFlightOriginInput" class="form-label">From</label>
+                            <input class="form-control" autocomplete="off" autofocus name="origin" placeholder="Departure Airport eg(RDU)" id="bookFlightOriginInput" type="text">
+                        </div>
 
-                <div class="form-group">
-                    <label for="bookFlightAdultsInput">Number of Adults</label>
-                    <input autocomplete="off" name="adults" placeholder="Number of Adults eg(1)" id="bookFlightAdultsInput" type="number" value="1" min="1">
-                </div>
+                        <div class="col-md-4">
+                            <label for="bookFlightDestinationInput" class="form-label">To</label>
+                            <input class="form-control" autocomplete="off" name="destination" placeholder="Arrival Airport eg(MIA)" id="bookFlightDestinationInput" type="text">
+                        </div>
 
-                <div class="form-group">
-                    <label for="bookFlightAirlineCodeInput">Airline Code (optional)</label>
-                    <input autocomplete="off" name="airline_code" placeholder="Airline Code eg(UA)" id="bookFlightAirlineCodeInput" type="text">
-                </div>
+                        <div class="col-md-4">
+                            <label for="bookFlightDepartureDateInput" class="form-label">Departure Date</label>
+                            <input class="form-control" autocomplete="off" name="departure_date" placeholder="Departure Date eg(2026-01-19)" id="bookFlightDepartureDateInput" type="date">
+                        </div>
 
-                <div class="form-group">
-                    <label for="bookFlightMaxResultsInput">Max Results (optional)</label>
-                    <input autocomplete="off" name="max_results" placeholder="Max Results" id="bookFlightMaxResultsInput" type="number">
-                </div>
+                        <div class="col-md-3">
+                            <label for="bookFlightAdultsInput" class="form-label">Number of Adults</label>
+                            <input class="form-control" autocomplete="off" name="adults" placeholder="Number of Adults eg(1)" id="bookFlightAdultsInput" type="number" value="1" min="1">
+                        </div>
 
-                <div class="form-group submit">
-                    <input type="submit" value="Search Flights">
+                        <div class="col-md-3">
+                            <label for="bookFlightAirlineCodeInput" class="form-label">Airline Code (optional)</label>
+                            <input class="form-control" autocomplete="off" name="airline_code" placeholder="Airline Code eg(UA)" id="bookFlightAirlineCodeInput" type="text">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="bookFlightMaxResultsInput" class="form-label">Max Results (optional)</label>
+                            <input class="form-control" autocomplete="off" name="max_results" placeholder="Max Results" id="bookFlightMaxResultsInput" type="number">
+                        </div>
+
+                        <div class="col-12 d-flex gap-2">
+                            <button class="btn btn-primary" type="submit">Search Flights</button>
+                            <a class="btn btn-outline-secondary" href="/autotrack">To Auto Track Page</a>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
-        <div class="section">
-            <a href="/autotrack">Go to Auto Track Page</a>
-        </div>
-        <div class="container">
-            <h2>Full Route Results</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Search no</th>
-                        <th>Stops</th>
-                        <th>Departure Airport</th>
-                        <th>Departure Time</th>
-                        <th>Arrival Airport</th>
-                        <th>Arrival Time</th>
-                        <th>Duration</th>
-                        <th>Carrier Code</th>
-                        <th>Flight Number</th>
-                        <th>Price</th>
-                        <th>Bookable Seats</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for flight in flights %}
-                    <tr>
-                        <td>{{ flight.search_no }}</td>
-                        <td>{{ flight.stops }}</td>
-                        <td>{{ flight.departure_airport }}</td>
-                        <td>{{ flight.departure_time }}</td>
-                        <td>{{ flight.arrival_airport }}</td>
-                        <td>{{ flight.arrival_time }}</td>
-                        <td>{{ flight.duration }}</td>
-                        <td>{{ flight.carrier_code }}</td>
-                        <td>{{ flight.flight_number }}</td>
-                        <td>{{ flight.price }}</td>
-                        <td>{{ flight.bookable_seats }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5 mb-3">Full Route Results</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Search no</th>
+                                    <th>Stops</th>
+                                    <th>Departure Airport</th>
+                                    <th>Departure Time</th>
+                                    <th>Arrival Airport</th>
+                                    <th>Arrival Time</th>
+                                    <th>Duration</th>
+                                    <th>Carrier Code</th>
+                                    <th>Flight Number</th>
+                                    <th>Price</th>
+                                    <th>Bookable Seats</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for flight in flights %}
+                                <tr>
+                                    <td>{{ flight.search_no }}</td>
+                                    <td>{{ flight.stops }}</td>
+                                    <td>{{ flight.departure_airport }}</td>
+                                    <td>{{ flight.departure_time }}</td>
+                                    <td>{{ flight.arrival_airport }}</td>
+                                    <td>{{ flight.arrival_time }}</td>
+                                    <td>{{ flight.duration }}</td>
+                                    <td>{{ flight.carrier_code }}</td>
+                                    <td>{{ flight.flight_number }}</td>
+                                    <td>{{ flight.price }}</td>
+                                    <td>{{ flight.bookable_seats }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div> 
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
