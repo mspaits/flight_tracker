@@ -4,7 +4,6 @@ from io import StringIO
 import os
 import json
 import base64
-import google.auth
 import sqlite3
 from pprint import pprint
 from email.message import EmailMessage
@@ -25,7 +24,8 @@ load_dotenv()
 app = Flask(__name__)
 
 BASE_DIR = Path(__file__).resolve().parent
-DB_PATH = BASE_DIR / "data" / "tracked.db"
+DEFAULT_DB_PATH = BASE_DIR / "data" / "tracked.db"
+DB_PATH = Path(os.getenv("DB_PATH", str(DEFAULT_DB_PATH)))
 
 # Database connection preventing multiple thread usage issues.  Per copilot suggestion.
 
@@ -263,13 +263,6 @@ def index():
         flight_data = process_flight_data(response)
 
         print(flight_data)
-
-        # for row in flight_data:
-        #   # Looks like this is how you can turn each row into a dict.
-        #   row_dict = dict(row)
-        #   dt = datetime.fromisoformat(row_dict.get("date"))
-        #   row_dict["date"] = dt.strftime("%a, %b %d, %Y")
-        #   tracked_table.append(row_dict)
 
         return render_template('index.html', flights=flight_data)
 
