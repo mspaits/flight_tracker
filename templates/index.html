@@ -85,9 +85,9 @@
                                     <td>{{ flight.search_no }}</td>
                                     <td>{{ flight.stops }}</td>
                                     <td class="text-center">{{ flight.departure_airport }}</td>
-                                    <td class="text-nowrap">{{ flight.departure_time|replace('\n', '<br>')|safe }}</td>
+                                    <td class="text-nowrap">{{ flight.departure_time|replace(' - ', '<br>')|safe }}</td>
                                     <td class="text-center">{{ flight.arrival_airport }}</td>
-                                    <td class="text-nowrap">{{ flight.arrival_time|replace('\n', '<br>')|safe }}</td>
+                                    <td class="text-nowrap">{{ flight.arrival_time|replace(' - ', '<br>')|safe }}</td>
                                     <td>{{ flight.duration }}</td>
                                     <td>{{ flight.carrier_code }}</td>
                                     <td>{{ flight.flight_number }}</td>

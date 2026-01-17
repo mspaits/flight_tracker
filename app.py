@@ -76,7 +76,8 @@ def get_airline_name(airline_code):
         return airline_code
 
     try:
-        airline_response = amadeus.reference_data.airlines.get(airlineCodes=airline_code)
+        airline_response = amadeus.reference_data.airlines.get(
+            airlineCodes=airline_code)
         airline_name = airline_response.data[0]['commonName']
         return airline_name
 
@@ -110,7 +111,7 @@ def get_flight_offers(origin, destination, departure_date, adults, airline_code,
 
 
 def process_flight_data(response):
-    """Function to process flight data from Amadeus response"""
+    """Function to process flight data from Amadeus response.  Pick needed data from JSON and create new list of dicts"""
 
     # Create an empty list to hold flight data for rendering in Flask
     flight_data = []
@@ -153,12 +154,13 @@ def process_flight_data(response):
 
     flight_data1 = []
     airline_code = {}
+    # Iterate through flight dicts and update time and duration format, look up carrier.
     for flight in flight_data:
         dt = datetime.fromisoformat(flight.get("departure_time"))
-        flight["departure_time"] = dt.strftime("%a, %b %d, %Y\n%-I:%M %p")
+        flight["departure_time"] = dt.strftime("%a, %b %d, %Y - %-I:%M %p")
 
         dt = datetime.fromisoformat(flight.get("arrival_time"))
-        flight["arrival_time"] = dt.strftime("%a, %b %d, %Y\n%-I:%M %p")
+        flight["arrival_time"] = dt.strftime("%a, %b %d, %Y - %-I:%M %p")
 
         flight["duration"] = iso_duration_to_text(flight.get('duration'))
 
@@ -167,7 +169,7 @@ def process_flight_data(response):
         if code:
             if code not in airline_code:
                 airline_code[code] = get_airline_name(code)
-        
+
         flight["carrier_code"] = airline_code[code]
 
         flight_data1.append(flight)
@@ -308,11 +310,9 @@ def autotrack():
         db = get_db()
         cur = db.cursor()
         cur.execute("SELECT * FROM searches")
-        # Fetches all rows as crappy sqlite3.Row ojects at a memory address
-        # tracked_table = cur.fetchall()
 
         tracked_table = []
-        for row in cur.fetchall():
+        for row in cur.fetchall():  # Fetches all rows as crappy sqlite3.Row ojects at a memory address
             # Looks like this is how you can turn each row into a dict.
             row_dict = dict(row)
             dt = datetime.fromisoformat(row_dict.get("date"))
@@ -373,7 +373,7 @@ def delete_search(search_id):
 
 @app.route('/add_email/<int:search_id>', methods=['POST'])
 def add_email(search_id):
-    """Route to delete a email and stop auto track"""
+    """Route to add an email and stop auto track"""
 
     email = request.form.get('email')
 
@@ -423,6 +423,11 @@ def send_daily_search():
             if response is None:
                 continue
 
+            # Reformat date
+            search_dict = dict(search)
+            dt = datetime.fromisoformat(search_dict.get("date"))
+            search_dict["date"] = dt.strftime("%a, %b %d, %Y")
+
             flight_data = process_flight_data(response)
-            subject = f"Flight Offers {search['origin']}->{search['destination']} {search['date']}"
+            subject = f"Flight Offers {search['origin']}->{search['destination']} {search_dict['date']}"
             gmail_send_message(flight_data, search['email'], subject=subject)
