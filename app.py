@@ -7,6 +7,8 @@ import base64
 import sqlite3
 from pprint import pprint
 from email.message import EmailMessage
+from pathlib import Path
+from datetime import datetime
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from google.auth.transport.requests import Request
@@ -15,8 +17,6 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from amadeus import Client, ResponseError
 from dotenv import load_dotenv
 from flask import Flask, current_app, redirect, render_template, request, g
-from pathlib import Path
-from datetime import datetime
 
 
 load_dotenv()
@@ -70,16 +70,19 @@ def iso_duration_to_text(s):
     return " ".join(parts) if parts else "0 min"
 
 
-def get_airline_name(xx):
+def get_airline_name(airline_code):
     """Function to look up airline name from 2-letter code"""
+    if not airline_code or len(airline_code) != 2:
+        return airline_code
+
     try:
-        airline_response = amadeus.reference_data.airlines.get(airlineCodes=xx)
+        airline_response = amadeus.reference_data.airlines.get(airlineCodes=airline_code)
         airline_name = airline_response.data[0]['commonName']
         return airline_name
 
     except ResponseError as error:
         print(f"An error occurred: {error}")
-        return None
+        return airline_code
 
 
 def get_flight_offers(origin, destination, departure_date, adults, airline_code, max_results):
@@ -149,17 +152,25 @@ def process_flight_data(response):
             flight_data.append(flight_info_leg)
 
     flight_data1 = []
-    for dict in flight_data:
-        dt = datetime.fromisoformat(dict.get("departure_time"))
-        dict["departure_time"] = dt.strftime("%a, %b %d, %Y\n%-I:%M %p")
-        flight_data1.append(dict)
+    airline_code = {}
+    for flight in flight_data:
+        dt = datetime.fromisoformat(flight.get("departure_time"))
+        flight["departure_time"] = dt.strftime("%a, %b %d, %Y\n%-I:%M %p")
 
-        dt = datetime.fromisoformat(dict.get("arrival_time"))
-        dict["arrival_time"] = dt.strftime("%a, %b %d, %Y\n%-I:%M %p")
-        flight_data1.append(dict)
+        dt = datetime.fromisoformat(flight.get("arrival_time"))
+        flight["arrival_time"] = dt.strftime("%a, %b %d, %Y\n%-I:%M %p")
 
-        dict['duration'] = iso_duration_to_text(dict.get('duration'))
-        flight_data1.append(dict)
+        flight["duration"] = iso_duration_to_text(flight.get('duration'))
+
+        code = flight.get("carrier_code")
+
+        if code:
+            if code not in airline_code:
+                airline_code[code] = get_airline_name(code)
+        
+        flight["carrier_code"] = airline_code[code]
+
+        flight_data1.append(flight)
 
     return flight_data
 
@@ -261,8 +272,6 @@ def index():
             return "Error retrieving flight offers."
 
         flight_data = process_flight_data(response)
-
-        print(flight_data)
 
         return render_template('index.html', flights=flight_data)
 
