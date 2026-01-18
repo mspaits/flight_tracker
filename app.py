@@ -83,7 +83,7 @@ def get_airline_name(airline_code):
         return airline_name
 
     except ResponseError as error:
-        print(f"An error occurred: {error}")
+        print(f"An error occurred in airline lookup: {error}")
         return airline_code
 
 
