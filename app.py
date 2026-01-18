@@ -198,8 +198,11 @@ def get_gmail_creds():
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
+            try:
+                creds.refresh(Request())
+            except Exception:
+                creds = None
+        if not creds or not creds.valid:
             flow = InstalledAppFlow.from_client_secrets_file(
                 str(client_path), SCOPES)
             creds = flow.run_local_server(port=0)
@@ -214,11 +217,6 @@ def gmail_send_message(flight_data, to_email, subject=None):
 
     creds = get_gmail_creds()
 
-    # Codex recommendation for pprinting JSON data to email
-    buffer = StringIO()
-    pprint(flight_data, stream=buffer, sort_dicts=False)
-    ppflight_data = buffer.getvalue()
-
     try:
         service = build("gmail", "v1", credentials=creds)
         message = EmailMessage()
@@ -227,7 +225,9 @@ def gmail_send_message(flight_data, to_email, subject=None):
         message['From'] = "mspaitsdev@gmail.com"
         message['Subject'] = subject or "Flight Offers"
 
-        message.set_content(f"Flight offers!\n {ppflight_data}")
+        message.set_content("Flight offers (text fallback).")
+        html_body = render_template("email_template.html", flights=flight_data)
+        message.add_alternative(html_body, subtype="html")
 
         # Encode the message
         encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
@@ -374,6 +374,8 @@ def check_search(search_id):
     flight_data = process_flight_data(response)
 
     print(flight_data)
+
+    #send_daily_search()
 
     return render_template('index.html', flights=flight_data)
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <body style="font-family: Arial, sans-serif; font-size:14px; color:#222;">
+        <h2 style="margin:0 0 12px;">Flight offers</h2>    
+        <table style="border-collapse: collapse; width:100%;">
+            <thead>
+                <tr>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Search no</th>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Stops</th>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Departure Airport</th>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Departure Time</th>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Arrival Airport</th>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Arrival Time</th>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Duration</th>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Carrier Code</th>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Flight Number</th>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Price</th>
+                    <th style="border:1px solid #ccc; padding:6px; text-align:left;">Bookable Seats</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for flight in flights %}
+                <tr>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.search_no }}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.stops }}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.departure_airport }}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.departure_time|replace(' - ', '<br>')|safe }}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.arrival_airport }}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.arrival_time|replace(' - ', '<br>')|safe }}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.duration }}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.carrier_code }}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.flight_number }}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.price }}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">{{ flight.bookable_seats }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>               
+</html>
