@@ -245,7 +245,7 @@ def gmail_send_message(flight_data, to_email, subject=None):
 
 
 # Flask route to render a simple homepage
-@app.route('/', methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def index():
     """Route for homepage and flight search"""
 
@@ -254,10 +254,20 @@ def index():
     if request.method == 'POST':
         # Get data from HTML form
         origin = request.form.get('origin').upper()
+        if not origin or len(origin) != 3:
+            return redirect("/")
         destination = request.form.get('destination').upper()
+        if not destination or len(destination) != 3:
+            return redirect("/")
         departure_date = request.form.get('departure_date')
+        if not departure_date:
+            return redirect("/")
         adults = int(request.form.get('adults', 1))
+        if not adults:
+            return redirect("/")
         airline_code = request.form.get('airline_code')
+        if airline_code and len(airline_code) != 2:
+            return redirect("/")
         max_results = request.form.get('max_results')
 
         # Call function to get flight offers
@@ -281,17 +291,27 @@ def index():
         return render_template('index.html')
 
 
-@app.route('/autotrack', methods=['GET', 'POST'])
+@app.route("/autotrack", methods=['GET', 'POST'])
 def autotrack():
     """Route for auto-tracking flights.  Adds searches to the db and displays tracked searches."""
 
     if request.method == 'POST':
         # Get data from HTML form
         origin = request.form.get('origin').upper()
+        if not origin or len(origin) != 3:
+            return redirect("/autotrack")
         destination = request.form.get('destination').upper()
+        if not destination or len(destination) != 3:
+            return redirect("/autotrack")
         departure_date = request.form.get('departure_date')
+        if not departure_date:
+            return redirect("/autotrack")
         adults = int(request.form.get('adults', 1))
+        if not adults:
+            return redirect("/autotrack")
         airline_code = request.form.get('airline_code')
+        if airline_code and len(airline_code) != 2:
+            return redirect("/autotrack")
         max_results = request.form.get('max_results')
         email = request.form.get('email')
 
@@ -322,7 +342,7 @@ def autotrack():
         return render_template('autotrack.html', tracked_table=tracked_table)
 
 
-@app.route('/check/<int:search_id>', methods=['POST'])
+@app.route("/check/<int:search_id>", methods=['POST'])
 def check_search(search_id):
     """Route to check a tracked search immediately"""
 
@@ -359,7 +379,7 @@ def check_search(search_id):
 
 
 # I got this method of passing in the search_id from a copilot suggestion
-@app.route('/delete/<int:search_id>', methods=['POST'])
+@app.route("/delete/<int:search_id>", methods=['POST'])
 def delete_search(search_id):
     """Route to delete a tracked search"""
 
@@ -371,9 +391,9 @@ def delete_search(search_id):
     return redirect('/autotrack')
 
 
-@app.route('/add_email/<int:search_id>', methods=['POST'])
+@app.route("/add_email/<int:search_id>", methods=['POST'])
 def add_email(search_id):
-    """Route to add an email and stop auto track"""
+    """Route to add an email and start auto track"""
 
     email = request.form.get('email')
 
@@ -387,7 +407,7 @@ def add_email(search_id):
     return redirect('/autotrack')
 
 
-@app.route('/remove_email/<int:search_id>', methods=['POST'])
+@app.route("/remove_email/<int:search_id>", methods=['POST'])
 def remove_email(search_id):
     """Route to delete a email and stop auto track"""
 

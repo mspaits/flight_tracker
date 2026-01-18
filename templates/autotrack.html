@@ -91,7 +91,7 @@
                                     <td class="text-center">{{ search.adults }}</td>
                                     <td class="text-center">{{ search.results }}</td>
                                     <td>{{ search.airline }}</td>
-                                    <td>{{ search.email }}</td>
+                                    <td>{{ search.email or '' }}</td>
                                     <td class="button_column">
                                         <form action="/check/{{ search.id }}" method="post">
                                             <button class="btn btn-sm btn-primary w-100 text-nowrap" type="submit">Search Now</button>
