@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="240" viewBox="0 0 1200 240" role="img" aria-label="Sunrise sky with plane route">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fbc16f"/>
+      <stop offset="55%" stop-color="#7cc8ff"/>
+      <stop offset="100%" stop-color="#dff3ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="240" fill="url(#sky)"/>
+  <circle cx="140" cy="70" r="38" fill="#ffd27d" opacity="0.95"/>
+  <rect x="0" y="170" width="1200" height="70" fill="#f4fbff"/>
+  <path d="M40 190 C180 160 320 160 460 190 C600 220 760 220 900 190 C1020 165 1100 160 1180 182" fill="none" stroke="#c8e6ff" stroke-width="6"/>
+  <path d="M180 120 C380 60 620 70 860 120" fill="none" stroke="#ffffff" stroke-width="3" stroke-dasharray="10 10" opacity="0.9"/>
+  <path d="M840 106 l40 8 -34 10 -10 10 -6 -12 -18 -4 6 -8 -6 -6 z" fill="#0d3b66"/>
+  <g opacity="0.85">
+    <ellipse cx="420" cy="70" rx="48" ry="16" fill="#ffffff"/>
+    <ellipse cx="455" cy="70" rx="36" ry="12" fill="#ffffff"/>
+    <ellipse cx="740" cy="50" rx="42" ry="14" fill="#ffffff"/>
+    <ellipse cx="770" cy="50" rx="30" ry="10" fill="#ffffff"/>
+  </g>
+  <g opacity="0.7">
+    <circle cx="1000" cy="180" r="2.5" fill="#4c8ccf"/>
+    <circle cx="1020" cy="188" r="2.5" fill="#4c8ccf"/>
+    <circle cx="1042" cy="176" r="2.5" fill="#4c8ccf"/>
+    <circle cx="1065" cy="186" r="2.5" fill="#4c8ccf"/>
+  </g>
+</svg>

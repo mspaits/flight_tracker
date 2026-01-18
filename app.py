@@ -9,6 +9,7 @@ from pprint import pprint
 from email.message import EmailMessage
 from pathlib import Path
 from datetime import datetime
+import google.auth
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from google.auth.transport.requests import Request
@@ -375,7 +376,7 @@ def check_search(search_id):
 
     print(flight_data)
 
-    #send_daily_search()
+    # send_daily_search()
 
     return render_template('index.html', flights=flight_data)
 
