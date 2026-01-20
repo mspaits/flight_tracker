@@ -29,8 +29,6 @@ DEFAULT_DB_PATH = BASE_DIR / "data" / "tracked.db"
 DB_PATH = Path(os.getenv("DB_PATH", str(DEFAULT_DB_PATH)))
 
 # Database connection preventing multiple thread usage issues.  Per copilot suggestion.
-
-
 def get_db():
     if 'db' not in g:
         # Ensures data exists
