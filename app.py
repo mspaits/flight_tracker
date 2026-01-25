@@ -89,6 +89,11 @@ def get_airline_name(airline_code):
 
 def get_flight_offers(origin, destination, departure_date, adults, airline_code, max_results, nonstop):
     """Function to get flight offers from Amadeus API"""
+
+    if departure_date < datetime.now().date().isoformat():
+        print("Departure date is in the past.")
+        return None
+
     try:
         params = dict(
             originLocationCode=origin,
@@ -109,7 +114,8 @@ def get_flight_offers(origin, destination, departure_date, adults, airline_code,
         return response
 
     except ResponseError as error:
-        print(f"An error occurred getting flight data: {error}")
+        print(
+            f"An error occurred getting flight data, get_flight_offers failed: {error}")
         return None
 
 
@@ -286,7 +292,7 @@ def index():
         )
 
         if response is None:
-            return "Error retrieving flight offers."
+            return "get_flight_offers failed."
 
         flight_data = process_flight_data(response)
 
@@ -363,6 +369,9 @@ def check_search(search_id):
     if search is None:
         return "Search not found.", 404
 
+    if search['date'] < datetime.now().date().isoformat():
+        return "Departure date is in the past."
+
     response = get_flight_offers(
         origin=search['origin'],
         destination=search['destination'],
@@ -374,7 +383,7 @@ def check_search(search_id):
     )
 
     if response is None:
-        return "Error retrieving flight offers."
+        return "get_flight_offers failed."
 
     # Save response to a JSON file
     with open("flight_offers.json", "w", encoding="utf-8") as file:
