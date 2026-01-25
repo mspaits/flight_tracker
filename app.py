@@ -29,6 +29,8 @@ DEFAULT_DB_PATH = BASE_DIR / "data" / "tracked.db"
 DB_PATH = Path(os.getenv("DB_PATH", str(DEFAULT_DB_PATH)))
 
 # Database connection preventing multiple thread usage issues.  Per copilot suggestion.
+
+
 def get_db():
     if 'db' not in g:
         # Ensures data exists
@@ -85,7 +87,7 @@ def get_airline_name(airline_code):
         return airline_code
 
 
-def get_flight_offers(origin, destination, departure_date, adults, airline_code, max_results):
+def get_flight_offers(origin, destination, departure_date, adults, airline_code, max_results, nonstop):
     """Function to get flight offers from Amadeus API"""
     try:
         params = dict(
@@ -99,6 +101,8 @@ def get_flight_offers(origin, destination, departure_date, adults, airline_code,
             params['includedAirlineCodes'] = airline_code
         if max_results:
             params['max'] = int(max_results)
+        if nonstop:
+            params['nonStop'] = 'true'
 
         response = amadeus.shopping.flight_offers_search.get(**params)
 
@@ -268,6 +272,7 @@ def index():
         if airline_code and len(airline_code) != 2:
             return redirect("/")
         max_results = request.form.get('max_results')
+        nonstop = request.form.get('nonstop')
 
         # Call function to get flight offers
         response = get_flight_offers(
@@ -276,7 +281,8 @@ def index():
             departure_date=departure_date,
             adults=adults,
             airline_code=airline_code,
-            max_results=max_results
+            max_results=max_results,
+            nonstop=nonstop,
         )
 
         if response is None:
@@ -313,12 +319,13 @@ def autotrack():
             return redirect("/autotrack")
         max_results = request.form.get('max_results')
         email = request.form.get('email')
+        nonstop = request.form.get('nonstop')
 
         # Apparently this is what you need to do to access Sqlite3 outside of CS50 IDE.
         db = get_db()
         cur = db.cursor()
-        cur.execute("INSERT INTO searches (origin, destination, date, adults, results, airline, email) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                    (origin, destination, departure_date, adults, max_results, airline_code, email))
+        cur.execute("INSERT INTO searches (origin, destination, date, adults, results, airline, email, nonstop) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                    (origin, destination, departure_date, adults, max_results, airline_code, email, nonstop))
         db.commit()
 
         return redirect('/autotrack')
@@ -336,6 +343,9 @@ def autotrack():
             row_dict = dict(row)
             dt = datetime.fromisoformat(row_dict.get("date"))
             row_dict["date"] = dt.strftime("%a, %b %d, %Y")
+            nonstop_value = row_dict.get("nonstop")
+            row_dict["nonstop"] = "Yes" if str(nonstop_value).lower() in (
+                "true", "1", "yes", "on") else "No"
             tracked_table.append(row_dict)
 
         return render_template('autotrack.html', tracked_table=tracked_table)
@@ -359,7 +369,8 @@ def check_search(search_id):
         departure_date=search['date'],
         adults=search['adults'],
         airline_code=search['airline'],
-        max_results=search['results']
+        max_results=search['results'],
+        nonstop=search['nonstop']
     )
 
     if response is None:
@@ -438,7 +449,8 @@ def send_daily_search():
                 departure_date=search['date'],
                 adults=search['adults'],
                 airline_code=search['airline'],
-                max_results=search['results']
+                max_results=search['results'],
+                nonstop=search['nonstop']
             )
 
             if response is None:

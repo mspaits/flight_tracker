@@ -27,19 +27,19 @@
                 <div class="card-body">
                     <h2 class="h5 mb-3">Search Flights</h2>
                     <form action="/" method="post" class="row g-3">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <i class="bi bi-geo-alt-fill"></i>
                             <label for="bookFlightOriginInput" class="form-label">From</label>
                             <input class="form-control" autocomplete="off" autofocus name="origin" placeholder="Departure Airport eg(RDU)" id="bookFlightOriginInput" type="text">
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <i class="bi bi-geo-alt-fill"></i>
                             <label for="bookFlightDestinationInput" class="form-label">To</label>
                             <input class="form-control" autocomplete="off" name="destination" placeholder="Arrival Airport eg(MIA)" id="bookFlightDestinationInput" type="text">
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <i class="bi bi-calendar-check-fill"></i>
                             <label for="bookFlightDepartureDateInput" class="form-label">Departure Date</label>
                             <input class="form-control" autocomplete="off" name="departure_date" placeholder="Departure Date eg(2026-01-19)" id="bookFlightDepartureDateInput" type="date">
@@ -50,7 +50,7 @@
                             <label for="bookFlightAdultsInput" class="form-label">Number of Adults</label>
                             <input class="form-control" autocomplete="off" name="adults" placeholder="Number of Adults eg(1)" id="bookFlightAdultsInput" type="number" value="1" min="1">
                         </div>
-
+                        
                         <div class="col-md-3">
                             <i class="bi bi-airplane"></i>
                             <label for="bookFlightAirlineCodeInput" class="form-label">Airline Code (optional)</label>
@@ -63,10 +63,18 @@
                             <input class="form-control" autocomplete="off" name="max_results" placeholder="Max Results" id="bookFlightMaxResultsInput" type="number">
                         </div>
 
+                        <div class="col-md-3">
+                            <div class="form-check mt-4">
+                                <input class="form-check-input" type="checkbox" value="true" id="nonstopCheckInput" name="nonstop">
+                                <label class="form-check-label" for="nonstopCheckInput">Nonstop Flights Only</label>
+                                <i class="bi bi-arrow-right-circle"></i>
+                            </div>
+                        </div>      
+
                         <div class="col-12 d-flex gap-2">
                             <button class="btn btn-primary" type="submit">Search Flights</button>
                             <a class="btn btn-outline-secondary" href="/autotrack">To Auto Track Page</a>
-                        </div>
+                        </div>                         
                     </form>
                 </div>
             </div>
@@ -104,7 +112,7 @@
                                     <td>{{ flight.carrier_code }}</td>
                                     <td>{{ flight.flight_number }}</td>
                                     <td>{{ flight.price }}</td>
-                                    <td>{{ flight.bookable_seats }}</td>
+                                    <td class="text-center">{{ flight.bookable_seats }}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
