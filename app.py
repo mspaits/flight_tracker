@@ -151,14 +151,13 @@ def process_flight_data(response):
             "duration": flight['itineraries'][0]['duration'],
             "carrier_code": flight['validatingAirlineCodes'][0],
             "price": flight['price']['grandTotal'],
-            "bookable_seats": flight['numberOfBookableSeats']
+            "bookable_seats": flight['numberOfBookableSeats'],
+            "legs": []
         }
-        flight_data.append(flight_info)
 
         for i in range(legs):
-            # Need to print each leg details
             flight_info_leg = {
-                "stops": f"Leg: {i + 1}",  # Actually indicates leg number
+                "leg_no": i + 1,
                 "departure_airport": segments[i]['departure']['iataCode'],
                 "departure_time": segments[i]['departure']['at'],
                 "arrival_airport": segments[i]['arrival']['iataCode'],
@@ -168,7 +167,9 @@ def process_flight_data(response):
                 segments[i]['operating'].get('carrierName'),
                 "flight_number": segments[i]['number']
             }
-            flight_data.append(flight_info_leg)
+            flight_info["legs"].append(flight_info_leg)
+
+        flight_data.append(flight_info)
 
     # Iterate through flight dicts and update time and duration format, look up carrier.
     for flight in flight_data:
@@ -185,7 +186,21 @@ def process_flight_data(response):
         if code:
             flight["carrier_code"] = get_airline_name(code)
 
-    print(flight_data)
+        for leg in flight.get("legs", []):
+            dt = datetime.fromisoformat(leg.get("departure_time"))
+            leg["departure_time"] = dt.strftime("%a, %b %d, %Y - %-I:%M %p")
+
+            dt = datetime.fromisoformat(leg.get("arrival_time"))
+            leg["arrival_time"] = dt.strftime("%a, %b %d, %Y - %-I:%M %p")
+
+            leg["duration"] = iso_duration_to_text(leg.get('duration'))
+
+            code = leg.get("carrier_code")
+
+            if code:
+                leg["carrier_code"] = get_airline_name(code)
+
+    # pprint(flight_data)
 
     return flight_data
 

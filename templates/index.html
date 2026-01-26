@@ -93,9 +93,9 @@
                                     <th>Arrival Time</th>
                                     <th>Duration</th>
                                     <th>Carrier Code</th>
-                                    <th>Flight Number</th>
                                     <th>Price</th>
                                     <th>Bookable Seats</th>
+                                    <th>Legs</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -109,10 +109,56 @@
                                     <td class="text-nowrap">{{ flight.arrival_time|replace(' - ', '<br>')|safe }}</td>
                                     <td>{{ flight.duration }}</td>
                                     <td>{{ flight.carrier_code }}</td>
-                                    <td>{{ flight.flight_number }}</td>
                                     <td>{{ flight.price }}</td>
                                     <td class="text-center">{{ flight.bookable_seats }}</td>
+                                    <td class="text-center">
+                                        {% if flight.legs and flight.legs|length > 0 %}
+                                        <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#legs-{{ loop.index }}" aria-expanded="false" aria-controls="legs-{{ loop.index }}">
+                                            View
+                                        </button>
+                                        {% else %}
+                                        <span class="text-muted">—</span>
+                                        {% endif %}
+                                    </td>
                                 </tr>
+                                {% if flight.legs and flight.legs|length > 0 %}
+                                <tr class="collapse" id="legs-{{ loop.index }}">
+                                    <td colspan="12">
+                                        <div class="p-2">
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-bordered align-middle mb-0">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th>Leg</th>
+                                                            <th>Departure</th>
+                                                            <th>Departure Time</th>
+                                                            <th>Arrival</th>
+                                                            <th>Arrival Time</th>
+                                                            <th>Duration</th>
+                                                            <th>Carrier</th>
+                                                            <th>Flight #</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for leg in flight.legs %}
+                                                        <tr>
+                                                            <td>{{ leg.leg_no }}</td>
+                                                            <td class="text-center">{{ leg.departure_airport }}</td>
+                                                            <td class="text-nowrap">{{ leg.departure_time|replace(' - ', '<br>')|safe }}</td>
+                                                            <td class="text-center">{{ leg.arrival_airport }}</td>
+                                                            <td class="text-nowrap">{{ leg.arrival_time|replace(' - ', '<br>')|safe }}</td>
+                                                            <td>{{ leg.duration }}</td>
+                                                            <td>{{ leg.carrier_code }}</td>
+                                                            <td>{{ leg.flight_number }}</td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endif %}
                                 {% endfor %}
                             </tbody>
                         </table>
