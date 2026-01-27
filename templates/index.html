@@ -82,8 +82,8 @@
                 <div class="card-body">
                     <h2 class="h5 mb-3">Full Route Results</h2>
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover align-middle">
-                            <thead>
+                        <table class="table table-hover align-middle flight-table">
+                            <thead class="table-light">
                                 <tr>
                                     <th>Search no</th>
                                     <th>Stops</th>
@@ -100,7 +100,7 @@
                             </thead>
                             <tbody>
                                 {% for flight in flights %}
-                                <tr>
+                                <tr class="flight-row {{ 'flight-row-odd' if loop.index is odd else 'flight-row-even' }}">
                                     <td>{{ flight.search_no }}</td>
                                     <td>{{ flight.stops }}</td>
                                     <td class="text-center">{{ flight.departure_airport }}</td>

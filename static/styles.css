@@ -8,3 +8,14 @@
     width: 100%;
 }
 
+.flight-table thead th {
+    background-color: #ffffff;
+}
+
+.flight-table .flight-row-odd > * {
+    background-color: #f2f2f2;
+}
+
+.flight-table .flight-row-even > * {
+    background-color: #e6e6e6;
+}
