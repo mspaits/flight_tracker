@@ -69,11 +69,11 @@
                                 <label class="form-check-label" for="nonstopCheckInput">Nonstop Flights Only</label>
                             </div>
                         </div>
-
+                        <p class="text-danger mt-3" id="empty_warning"></p>
                         <div class="col-12 d-flex gap-2">
-                            <button class="btn btn-primary" type="submit">Search Flights</button>
+                            <button class="btn btn-primary" id="search_button" type="submit">Search Flights</button>
                             <a class="btn btn-outline-secondary" href="/autotrack">To Auto Track Page</a>
-                        </div>                         
+                        </div>
                     </form>
                 </div>
             </div>
@@ -167,5 +167,15 @@
             </div> 
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script>
+            document.querySelector('#search_button').addEventListener('click', function(event) {
+                if (document.getElementById("bookFlightOriginInput").value === "" ||
+                    document.getElementById("bookFlightDestinationInput").value === "" ||
+                    document.getElementById("bookFlightDepartureDateInput").value === "" ||
+                    document.getElementById("bookFlightAdultsInput").value === "") {
+                        event.preventDefault();    
+                        document.getElementById("empty_warning").innerHTML = "**Please fill in all required fields.**";
+            }});                            
+        </script>
     </body>
 </html>

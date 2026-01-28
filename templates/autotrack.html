@@ -74,17 +74,15 @@
                                 <label class="form-check-label" for="nonstopCheckInput">Nonstop Flights Only</label>
                             </div>
                         </div>  
-
                         <p class="text-muted mb-0 text-end">*To add email to existing route enter email here and select "Add Email" in below table</p>
+                        <p class="text-danger mt-3" id="empty_warning"></p>
                         <div class="col-12 d-flex gap-2">
-                            <button class="btn btn-primary" type="submit">Track Route</button>
+                            <button class="btn btn-primary" id="track_button" type="submit">Track Route</button>
                             <a class="btn btn-outline-secondary" href="/">Back to Search</a>
                         </div>
-                        
                     </form>
                 </div>
             </div>
-
 
             <div class="card shadow-sm">
                 <div class="card-body">
@@ -152,6 +150,15 @@
                                             form.querySelector('.row-email-input').value = email;
                                         });
                                     });
+
+                                    document.querySelector('#track_button').addEventListener('click', function(event) {
+                                        if (document.getElementById("bookFlightOriginInput").value === "" ||
+                                            document.getElementById("bookFlightDestinationInput").value === "" ||
+                                            document.getElementById("bookFlightDepartureDateInput").value === "" ||
+                                            document.getElementById("bookFlightAdultsInput").value === "") {
+                                                event.preventDefault();    
+                                                document.getElementById("empty_warning").innerHTML = "**Please fill in all required fields.**";
+                                    }});
                                 </script>
                             </tbody>
                         </table>
