@@ -51,6 +51,7 @@ def close_db(error=None):
 amadeus = Client(
     client_id=os.getenv("AMADEUS_API_KEY"),
     client_secret=os.getenv("AMADEUS_API_SECRET")
+    hostname='production'
 )
 
 
